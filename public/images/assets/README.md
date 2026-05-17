@@ -1,0 +1,5 @@
+Place general images and assets here.
+For the books promo section, add: books-promo-founder.png
+Background image for the books promo section: books-promo-bg.jpg
+For the two-column book section, add: mindset-before-millions-book.png
+For the mirrored workbook section, reuse: mindset-before-millions-book.png

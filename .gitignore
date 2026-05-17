@@ -4,6 +4,7 @@ node_modules
 # Next.js output and cache.
 .next
 out
+dist
 
 # Production and runtime artifacts.
 *.log

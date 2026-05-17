@@ -1,5 +1,5 @@
 // Optional sidebar navigation component for future dashboard-style route groups.
-import Link from "next/link";
+import { Link } from "react-router-dom";
 
 import { NAV_LINKS } from "@/lib/constants";
 
@@ -9,7 +9,7 @@ export function Sidebar(): JSX.Element {
       <ul className="space-y-2">
         {NAV_LINKS.map((item) => (
           <li key={item.href}>
-            <Link className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-foreground" href={item.href}>
+            <Link className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-foreground" to={item.href}>
               {item.label}
             </Link>
           </li>

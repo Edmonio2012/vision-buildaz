@@ -2,8 +2,8 @@
 export const SITE_CONFIG = {
   name: "Vision Buildaz",
   description:
-    "A professional GitHub profile and organization website built with Next.js 14 and TypeScript.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://example.com",
+    "A professional GitHub profile and organization website built with React and TypeScript.",
+  url: import.meta.env.VITE_SITE_URL || "https://example.com",
   ogImage: "/og-image.png"
 } as const;
 
