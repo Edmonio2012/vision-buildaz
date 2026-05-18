@@ -2,9 +2,9 @@
 export const SITE_CONFIG = {
   name: "Vision Buildaz",
   description:
-    "A professional GitHub profile and organization website built with React and TypeScript.",
-  url: import.meta.env.VITE_SITE_URL || "https://example.com",
-  ogImage: "/og-image.png"
+    "Vision Buildaz is a coaching and mentoring platform helping people grow with purpose, clarity, and aligned success.",
+  url: import.meta.env.VITE_SITE_URL || "https://visionbuildaz.com",
+  ogImage: "/images/logo/logo.png"
 } as const;
 
 export const NAV_LINKS = [

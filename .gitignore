@@ -1,10 +1,8 @@
 # Node dependencies.
-node_modules
+node_modules/
 
-# Next.js output and cache.
-.next
-out
-dist
+# Build output and cache.
+dist/
 
 # Production and runtime artifacts.
 *.log
@@ -16,6 +14,7 @@ pnpm-debug.log*
 # Environment files.
 .env
 .env.local
+.env.production
 .env.*.local
 
 # OS/editor files.

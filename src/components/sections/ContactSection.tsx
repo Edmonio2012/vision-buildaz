@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { FormEvent, useState } from "react";
 
 interface ContactFormData {
@@ -14,6 +15,24 @@ interface ContactFormErrors {
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+const sectionReveal = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.12
+    }
+  }
+};
+
+const revealItem = {
+  hidden: { opacity: 0, y: 28 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] }
+  }
+};
+
 export function ContactSection(): JSX.Element {
   const [form, setForm] = useState<ContactFormData>({
     email: "",
@@ -26,98 +45,153 @@ export function ContactSection(): JSX.Element {
   const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
 
-    const nextErrors: ContactFormErrors = {};
-    if (!form.email.trim()) nextErrors.email = "Email is required.";
-    else if (!EMAIL_REGEX.test(form.email)) nextErrors.email = "Enter a valid email address.";
-    if (!form.subject.trim()) nextErrors.subject = "Subject is required.";
-    if (!form.message.trim()) nextErrors.message = "Message is required.";
+    const validationErrors: ContactFormErrors = {};
+    if (!form.email.trim()) validationErrors.email = "Email is required.";
+    else if (!EMAIL_REGEX.test(form.email)) validationErrors.email = "Enter a valid email address.";
+    if (!form.subject.trim()) validationErrors.subject = "Subject is required.";
+    if (!form.message.trim()) validationErrors.message = "Message is required.";
 
-    setErrors(nextErrors);
-    setSubmitted(Object.keys(nextErrors).length === 0);
+    setErrors(validationErrors);
+    setSubmitted(Object.keys(validationErrors).length === 0);
   };
 
   return (
-    <section className="bg-[#071426] text-white">
-      <div
-        aria-hidden="true"
-        className="h-[56px] w-full bg-[linear-gradient(90deg,#f1dda0_0%,#c58b32_24%,#f4e6a8_50%,#cc933b_77%,#a96c25_100%)]"
-      />
+    <motion.section
+      className="relative isolate overflow-hidden bg-night px-6 py-section text-cream sm:px-8 lg:py-section-lg"
+      initial="hidden"
+      variants={sectionReveal}
+      viewport={{ once: true, amount: 0.25 }}
+      whileInView="show"
+    >
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_15%_12%,rgba(212,161,50,0.2),transparent_30%),radial-gradient(circle_at_88%_72%,rgba(255,255,255,0.1),transparent_34%)]" />
 
-      <div className="mx-auto max-w-[880px] px-5 pb-20 pt-20 sm:px-8 sm:pb-24 sm:pt-24">
-        <h2 className="text-center font-serif text-[30px] font-semibold uppercase leading-tight tracking-normal text-white sm:text-[42px]">
-          LET&apos;S STAY IN TOUCH
-        </h2>
+      <div className="container">
+        <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
+          <motion.div className="max-w-[620px]" variants={revealItem}>
+            <p className="text-label font-bold uppercase text-accent">Contact</p>
+            <h2 className="mt-5 text-[2.8rem] font-extrabold leading-none text-cream sm:text-[4.4rem]">
+              LET&apos;S STAY IN TOUCH
+            </h2>
+            <p className="mt-8 text-[1.05rem] leading-[1.85] text-cream/82 sm:text-[1.18rem]">
+              Are you ready to take the next step toward achieving your goals? Contact Vision
+              Buildaz today to schedule a consultation. Whether you&apos;re interested in one-on-one
+              coaching, workshops, or financial mentorship, we&apos;re here to help. You ready?
+              Let&apos;s grow!
+            </p>
 
-        <p className="mx-auto mt-8 max-w-[760px] text-center text-[16px] font-normal leading-[1.75] tracking-normal text-[#f8fafc] sm:text-[18px]">
-          Are you ready to take the next step toward achieving your goals? Contact Vision Buildaz today to schedule a
-          consultation. Whether you&apos;re interested in one-on-one coaching, workshops, or financial mentorship, we&apos;re
-          here to help. You ready? Let&apos;s grow!
-        </p>
+            <div className="mt-16 border-t border-cream/14 pt-8">
+              <p className="text-[1.45rem] font-extrabold uppercase leading-tight text-cream">
+                YOU READY? LET&apos;S GROW!
+              </p>
+              <p className="mt-3 text-small font-semibold text-cream/68">
+                Copyright Vision Buildaz, LLC 2026
+              </p>
+            </div>
+          </motion.div>
 
-        <p className="mt-12 text-center text-[18px] font-normal tracking-normal text-[#f8fafc] sm:text-[20px]">
-          Please Complete Form Details
-        </p>
-
-        <form className="mx-auto mt-8 max-w-[360px]" noValidate onSubmit={handleSubmit}>
-          <label className="block text-center text-[12px] font-semibold uppercase tracking-normal text-white" htmlFor="contact-email">
-            EMAIL *
-          </label>
-          <input
-            className="mt-2 h-[44px] w-full rounded-lg border border-[#d99a20] bg-[#d99a20] px-4 text-[15px] text-[#071426] outline-none transition focus:border-[#f4d384] focus:ring-2 focus:ring-[#f4d384]/30"
-            id="contact-email"
-            onChange={(e) => setForm((prev) => ({ ...prev, email: e.target.value }))}
-            type="email"
-            value={form.email}
-          />
-          {errors.email ? <p className="mt-2 text-center text-sm text-[#ffcfbf]">{errors.email}</p> : null}
-
-          <label className="mt-5 block text-center text-[12px] font-semibold uppercase tracking-normal text-white" htmlFor="contact-subject">
-            SUBJECT
-          </label>
-          <input
-            className="mt-2 h-[44px] w-full rounded-lg border border-[#d99a20] bg-[#d99a20] px-4 text-[15px] text-[#071426] outline-none transition focus:border-[#f4d384] focus:ring-2 focus:ring-[#f4d384]/30"
-            id="contact-subject"
-            onChange={(e) => setForm((prev) => ({ ...prev, subject: e.target.value }))}
-            type="text"
-            value={form.subject}
-          />
-          {errors.subject ? <p className="mt-2 text-center text-sm text-[#ffcfbf]">{errors.subject}</p> : null}
-
-          <label className="mt-5 block text-center text-[12px] font-semibold uppercase tracking-normal text-white" htmlFor="contact-message">
-            ADD MESSAGE
-          </label>
-          <textarea
-            className="mt-2 min-h-[112px] w-full resize-y rounded-lg border border-[#d99a20] bg-[#d99a20] px-4 py-3 text-[16px] text-[#071426] outline-none placeholder:text-[#071426] transition focus:border-[#f4d384] focus:ring-2 focus:ring-[#f4d384]/30"
-            id="contact-message"
-            onChange={(e) => setForm((prev) => ({ ...prev, message: e.target.value }))}
-            placeholder="Enter text here"
-            value={form.message}
-          />
-          {errors.message ? <p className="mt-2 text-center text-sm text-[#ffcfbf]">{errors.message}</p> : null}
-
-          <div className="mt-7 flex justify-center">
-            <button
-              className="inline-flex items-center justify-center rounded-lg bg-white px-6 py-2.5 text-[14px] font-semibold uppercase tracking-normal text-[#071426] transition duration-300 hover:scale-[1.03] hover:bg-[#d99a20] hover:text-[#071426] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d99a20] focus-visible:ring-offset-2 focus-visible:ring-offset-[#071426] active:scale-[0.99] animate-ctaPulseGlow"
-              type="submit"
+          <motion.div variants={revealItem}>
+            <form
+              className="rounded-panel border border-cream/12 bg-cream/[0.06] p-5 shadow-strong backdrop-blur-xl sm:p-8"
+              noValidate
+              onSubmit={handleSubmit}
             >
-              SUBMIT
-            </button>
-          </div>
+              <p className="mb-8 text-center text-[1rem] font-bold text-cream">
+                Please Complete Form Details
+              </p>
 
-          {submitted ? (
-            <p className="mt-4 text-center text-sm text-[#d8f0cc]">Form submitted successfully.</p>
-          ) : null}
-        </form>
+              <div className="space-y-6">
+                <div>
+                  <div className="relative">
+                    <input
+                      className="peer h-field w-full rounded-control border border-cream/12 bg-cream/10 px-4 pt-5 text-[1rem] text-cream outline-none transition duration-premium ease-premium placeholder:text-transparent focus:border-accent focus:bg-cream/14 focus:ring-4 focus:ring-accent/20"
+                      id="contact-email"
+                      onChange={(e) => setForm((prev) => ({ ...prev, email: e.target.value }))}
+                      placeholder="Email"
+                      type="email"
+                      value={form.email}
+                    />
+                    <label
+                      className="pointer-events-none absolute left-4 top-2 text-[0.68rem] font-bold uppercase text-cream/62 transition-all duration-premium ease-premium peer-placeholder-shown:top-[1.12rem] peer-placeholder-shown:text-[0.8rem] peer-focus:top-2 peer-focus:text-[0.68rem] peer-focus:text-accent"
+                      htmlFor="contact-email"
+                    >
+                      EMAIL *
+                    </label>
+                  </div>
+                  {errors.email ? (
+                    <p className="mt-2 text-small text-accent">{errors.email}</p>
+                  ) : null}
+                </div>
 
-        <div className="mt-16 text-center">
-          <p className="font-serif text-[22px] font-semibold uppercase tracking-normal sm:text-[28px]">
-            YOU READY? LET&apos;S GROW!
-          </p>
-          <p className="mt-2 font-serif text-[16px] font-semibold tracking-normal sm:text-[20px]">
-            Copyright Vision Buildaz, LLC 2026
-          </p>
+                <div>
+                  <div className="relative">
+                    <input
+                      className="peer h-field w-full rounded-control border border-cream/12 bg-cream/10 px-4 pt-5 text-[1rem] text-cream outline-none transition duration-premium ease-premium placeholder:text-transparent focus:border-accent focus:bg-cream/14 focus:ring-4 focus:ring-accent/20"
+                      id="contact-subject"
+                      onChange={(e) => setForm((prev) => ({ ...prev, subject: e.target.value }))}
+                      placeholder="Subject"
+                      type="text"
+                      value={form.subject}
+                    />
+                    <label
+                      className="pointer-events-none absolute left-4 top-2 text-[0.68rem] font-bold uppercase text-cream/62 transition-all duration-premium ease-premium peer-placeholder-shown:top-[1.12rem] peer-placeholder-shown:text-[0.8rem] peer-focus:top-2 peer-focus:text-[0.68rem] peer-focus:text-accent"
+                      htmlFor="contact-subject"
+                    >
+                      SUBJECT
+                    </label>
+                  </div>
+                  {errors.subject ? (
+                    <p className="mt-2 text-small text-accent">{errors.subject}</p>
+                  ) : null}
+                </div>
+
+                <div>
+                  <div className="relative">
+                    <textarea
+                      className="peer min-h-[150px] w-full resize-y rounded-control border border-cream/12 bg-cream/10 px-4 pt-10 text-[1rem] text-cream outline-none transition duration-premium ease-premium placeholder:text-cream/45 focus:border-accent focus:bg-cream/14 focus:ring-4 focus:ring-accent/20"
+                      id="contact-message"
+                      onChange={(e) => setForm((prev) => ({ ...prev, message: e.target.value }))}
+                      placeholder="Enter text here"
+                      value={form.message}
+                    />
+                    <label
+                      className="pointer-events-none absolute left-4 top-3 text-[0.68rem] font-bold uppercase text-cream/62 transition duration-premium ease-premium peer-focus:text-accent"
+                      htmlFor="contact-message"
+                    >
+                      ADD MESSAGE
+                    </label>
+                  </div>
+                  {errors.message ? (
+                    <p className="mt-2 text-small text-accent">{errors.message}</p>
+                  ) : null}
+                </div>
+              </div>
+
+              <motion.button
+                animate={{
+                  boxShadow: [
+                    "0 0 0 0 rgba(217,154,32,0.3), 0 20px 42px rgba(217,154,32,0.22)",
+                    "0 0 0 13px rgba(217,154,32,0), 0 26px 56px rgba(217,154,32,0.28)",
+                    "0 0 0 0 rgba(217,154,32,0.3), 0 20px 42px rgba(217,154,32,0.22)"
+                  ]
+                }}
+                className="mt-8 w-full rounded-control bg-accent px-6 py-4 text-small font-extrabold uppercase text-night transition duration-premium ease-premium hover:bg-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-night"
+                transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
+                type="submit"
+                whileHover={{ scale: 1.025 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                SUBMIT
+              </motion.button>
+
+              {submitted ? (
+                <p className="mt-4 text-center text-small font-semibold text-cream">
+                  Form submitted successfully.
+                </p>
+              ) : null}
+            </form>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

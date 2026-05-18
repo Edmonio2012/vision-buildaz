@@ -1,4 +1,5 @@
-// Root router component that maps top-level routes to page components.
+// Root router component with a page-level entrance animation.
+import { motion } from "framer-motion";
 import { Route, Routes } from "react-router-dom";
 
 import { AboutPage } from "@/pages/AboutPage";
@@ -8,11 +9,17 @@ import { ProjectsPage } from "@/pages/ProjectsPage";
 
 export default function App(): JSX.Element {
   return (
-    <Routes>
-      <Route element={<Home />} path="/" />
-      <Route element={<AboutPage />} path="/about" />
-      <Route element={<ProjectsPage />} path="/projects" />
-      <Route element={<ContactPage />} path="/contact" />
-    </Routes>
+    <motion.div
+      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 18 }}
+      transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <Routes>
+        <Route element={<Home />} path="/" />
+        <Route element={<AboutPage />} path="/about" />
+        <Route element={<ProjectsPage />} path="/projects" />
+        <Route element={<ContactPage />} path="/contact" />
+      </Routes>
+    </motion.div>
   );
 }
