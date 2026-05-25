@@ -1,15 +1,5 @@
 import { motion } from "framer-motion";
-import { FaLinkedinIn } from "react-icons/fa6";
-import { SiFacebook, SiInstagram, SiTiktok, SiYoutube } from "react-icons/si";
-import { SOCIAL_LINKS } from "@/lib/constants";
-
-const SOCIAL_ICONS: Record<(typeof SOCIAL_LINKS)[number]["label"], JSX.Element> = {
-  TikTok: <SiTiktok className="h-5 w-5" aria-hidden="true" />,
-  Instagram: <SiInstagram className="h-5 w-5" aria-hidden="true" />,
-  YouTube: <SiYoutube className="h-5 w-5" aria-hidden="true" />,
-  Facebook: <SiFacebook className="h-5 w-5" aria-hidden="true" />,
-  LinkedIn: <FaLinkedinIn className="h-5 w-5" aria-hidden="true" />
-};
+import { SocialMediaLinks } from "@/components/layout/SocialMediaLinks";
 
 // Books alert hero section shown directly under the header subheader.
 // Matches the provided reference: left text over blue architectural background + right founder image.
@@ -53,24 +43,12 @@ export function BooksAlertSection(): JSX.Element {
               Order Today!
             </motion.p>
             <motion.div
-              className="mt-4 flex items-center gap-3 md:justify-end"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.4, delay: 0.28 }}
             >
-              {SOCIAL_LINKS.map(({ label, href }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target={href.startsWith("http") ? "_blank" : undefined}
-                  rel={href.startsWith("http") ? "noreferrer noopener" : undefined}
-                  aria-label={label}
-                  className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#2e396a] shadow-[0_3px_8px_rgba(0,0,0,0.18)] transition hover:-translate-y-0.5 hover:shadow-[0_6px_12px_rgba(0,0,0,0.22)]"
-                >
-                  {SOCIAL_ICONS[label]}
-                </a>
-              ))}
+              <SocialMediaLinks />
             </motion.div>
           </div>
         </motion.div>

@@ -1,4 +1,5 @@
 import { BrandHeader } from "@/components/layout/BrandHeader";
+import { Copyright } from "@/components/layout/Copyright";
 import { BooksAlertSection } from "@/components/sections/BooksAlertSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { MindsetBeforeMillionsSection } from "@/components/sections/MindsetBeforeMillionsSection";
@@ -14,6 +15,7 @@ export function Home(): JSX.Element {
       <MindsetBeforeMillionsSection />
       <MindsetWorkbookMirrorSection />
       <ContactSection />
+      <Copyright />
     </>
   );
 }

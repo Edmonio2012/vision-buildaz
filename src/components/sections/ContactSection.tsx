@@ -1,9 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { FormEvent, useState } from "react";
-import { FaFacebookF, FaLinkedinIn } from "react-icons/fa6";
-import { SiInstagram, SiTiktok, SiYoutube } from "react-icons/si";
-import { SOCIAL_LINKS } from "@/lib/constants";
 
 interface ContactFormData {
   email: string;
@@ -18,14 +15,6 @@ interface ContactFormErrors {
 }
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const SOCIAL_ICONS: Record<(typeof SOCIAL_LINKS)[number]["label"], JSX.Element> = {
-  TikTok: <SiTiktok className="h-4.5 w-4.5" aria-hidden="true" />,
-  Instagram: <SiInstagram className="h-4.5 w-4.5" aria-hidden="true" />,
-  YouTube: <SiYoutube className="h-4.5 w-4.5" aria-hidden="true" />,
-  Facebook: <FaFacebookF className="h-4.5 w-4.5" aria-hidden="true" />,
-  LinkedIn: <FaLinkedinIn className="h-4.5 w-4.5" aria-hidden="true" />
-};
-
 export function ContactSection(): JSX.Element {
   const [form, setForm] = useState<ContactFormData>({
     email: "",
@@ -165,29 +154,6 @@ export function ContactSection(): JSX.Element {
           ) : null}
         </form>
 
-        <div className="mt-16">
-          <p className="[font-family:'Trirong',serif] text-[34px] font-bold leading-none text-white sm:text-[40px]">
-            YOU READY? LET&apos;S GROW!
-          </p>
-          <p className="mt-3 [font-family:'Trirong',serif] text-[18px] font-semibold leading-none text-white sm:text-[20px]">
-            Copyright Vision Buildaz, LLC 2026
-          </p>
-
-          <div className="mt-6 flex items-center justify-center gap-3">
-            {SOCIAL_LINKS.map(({ label, href }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label={label}
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#1f295f] transition hover:-translate-y-0.5"
-              >
-                {SOCIAL_ICONS[label]}
-              </a>
-            ))}
-          </div>
-        </div>
       </motion.div>
     </motion.section>
   );

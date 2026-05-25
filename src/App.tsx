@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import { AboutPage } from "@/pages/AboutPage";
 import { ContactPage } from "@/pages/ContactPage";
 import { Home } from "@/pages/Home";
+import { Mindset } from "@/pages/Mindset";
 import { ProjectsPage } from "@/pages/ProjectsPage";
 
 export default function App(): JSX.Element {
@@ -19,6 +20,7 @@ export default function App(): JSX.Element {
         <Route element={<AboutPage />} path="/about" />
         <Route element={<ProjectsPage />} path="/projects" />
         <Route element={<ContactPage />} path="/contact" />
+        <Route element={<Mindset />} path="/mindset" />
       </Routes>
     </motion.div>
   );

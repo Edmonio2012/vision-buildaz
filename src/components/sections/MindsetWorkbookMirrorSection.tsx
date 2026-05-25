@@ -1,8 +1,15 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-export function MindsetWorkbookMirrorSection(): JSX.Element {
+interface MindsetWorkbookMirrorSectionProps {
+  showOrderNow?: boolean;
+}
+
+export function MindsetWorkbookMirrorSection({
+  showOrderNow = true
+}: MindsetWorkbookMirrorSectionProps): JSX.Element {
   const [showFullCopy, setShowFullCopy] = useState(false);
 
   return (
@@ -70,19 +77,21 @@ export function MindsetWorkbookMirrorSection(): JSX.Element {
               )}
             </div>
 
-            <button
-              className="group relative mt-12 inline-flex animate-cta-pulse items-center gap-2 overflow-hidden rounded-[12px] border border-[#d8b168] bg-[#050608] px-8 py-4 text-[28px] font-extrabold uppercase leading-none tracking-[0.04em] text-white transition-all duration-300 hover:scale-[1.05] hover:border-[#f2cf87] hover:shadow-[0_26px_44px_rgba(0,0,0,0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d8b168] focus-visible:ring-offset-2 focus-visible:ring-offset-[#ececec]"
-              type="button"
-            >
-              <span className="pointer-events-none absolute inset-[1px] rounded-[10px] bg-gradient-to-b from-[#1f232a] via-[#0b0e12] to-[#040506]" />
-              <span className="pointer-events-none absolute -left-1/2 top-0 h-full w-[40%] animate-cta-sheen bg-gradient-to-r from-transparent via-[#ffedbf]/35 to-transparent" />
-              <span className="pointer-events-none absolute inset-0 rounded-[12px] shadow-[inset_0_1px_0_rgba(255,233,188,0.34),inset_0_-1px_0_rgba(0,0,0,0.5)]" />
-              <span className="relative z-10">Order Now</span>
-              <ArrowRight
-                aria-hidden="true"
-                className="relative z-10 h-7 w-7 transition-transform duration-300 group-hover:translate-x-1"
-              />
-            </button>
+            {showOrderNow ? (
+              <Link
+                to="/mindset"
+                className="group relative mt-12 inline-flex animate-cta-pulse items-center gap-2 overflow-hidden rounded-[12px] border border-[#d8b168] bg-[#050608] px-8 py-4 text-[28px] font-extrabold uppercase leading-none tracking-[0.04em] text-white transition-all duration-300 hover:scale-[1.05] hover:border-[#f2cf87] hover:shadow-[0_26px_44px_rgba(0,0,0,0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d8b168] focus-visible:ring-offset-2 focus-visible:ring-offset-[#ececec]"
+              >
+                <span className="pointer-events-none absolute inset-[1px] rounded-[10px] bg-gradient-to-b from-[#1f232a] via-[#0b0e12] to-[#040506]" />
+                <span className="pointer-events-none absolute -left-1/2 top-0 h-full w-[40%] animate-cta-sheen bg-gradient-to-r from-transparent via-[#ffedbf]/35 to-transparent" />
+                <span className="pointer-events-none absolute inset-0 rounded-[12px] shadow-[inset_0_1px_0_rgba(255,233,188,0.34),inset_0_-1px_0_rgba(0,0,0,0.5)]" />
+                <span className="relative z-10">Order Now</span>
+                <ArrowRight
+                  aria-hidden="true"
+                  className="relative z-10 h-7 w-7 transition-transform duration-300 group-hover:translate-x-1"
+                />
+              </Link>
+            ) : null}
           </motion.div>
         </div>
       </motion.section>
