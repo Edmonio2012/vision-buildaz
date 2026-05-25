@@ -1,4 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Trirong:wght@700&display=swap");
+
+@font-face {
+  font-family: "dinneuzeitgroteskltw01-_812426";
+  src: url("/fonts/dinneuzeitgroteskltw01-812426.woff2") format("woff2"),
+    url("/fonts/dinneuzeitgroteskltw01-812426.woff") format("woff");
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "avenida-w01";
+  src: url("/fonts/avenida-w01.woff2") format("woff2"), url("/fonts/avenida-w01.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
 
 @tailwind base;
 @tailwind components;
