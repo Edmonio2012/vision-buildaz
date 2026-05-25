@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { Route, Routes } from "react-router-dom";
 
-import { AboutPage } from "@/pages/AboutPage";
+import { About } from "@/pages/About";
 import { ContactPage } from "@/pages/ContactPage";
 import { Home } from "@/pages/Home";
 import { Mindset } from "@/pages/Mindset";
@@ -17,7 +17,7 @@ export default function App(): JSX.Element {
     >
       <Routes>
         <Route element={<Home />} path="/" />
-        <Route element={<AboutPage />} path="/about" />
+        <Route element={<About />} path="/about" />
         <Route element={<ProjectsPage />} path="/projects" />
         <Route element={<ContactPage />} path="/contact" />
         <Route element={<Mindset />} path="/mindset" />

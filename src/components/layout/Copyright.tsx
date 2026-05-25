@@ -5,7 +5,7 @@ interface CopyrightProps {
   variant?: "minimal" | "social";
 }
 
-export function Copyright({ variant = "minimal" }: CopyrightProps): JSX.Element {
+export function Copyright({ variant = "social" }: CopyrightProps): JSX.Element {
   if (variant === "social") {
     return (
       <footer className="bg-[#1f295f] px-6 pb-10 pt-8 text-center text-white sm:px-8">
