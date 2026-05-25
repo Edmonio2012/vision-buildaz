@@ -13,3 +13,11 @@ export const NAV_LINKS = [
   { label: "Projects", href: "/projects" },
   { label: "Contact", href: "/contact" }
 ] as const;
+
+export const SOCIAL_LINKS = [
+  { label: "TikTok", href: "https://www.tiktok.com/@visionbuildaz" },
+  { label: "Instagram", href: "https://www.instagram.com/visionbuildaz" },
+  { label: "YouTube", href: "https://www.youtube.com/@visionbuildaz" },
+  { label: "Facebook", href: "https://www.facebook.com/visionbuildaz" },
+  { label: "LinkedIn", href: "https://il.linkedin.com/company/visionbuildaz" }
+] as const;

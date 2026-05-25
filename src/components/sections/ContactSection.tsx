@@ -1,5 +1,9 @@
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { FormEvent, useState } from "react";
+import { FaFacebookF, FaLinkedinIn } from "react-icons/fa6";
+import { SiInstagram, SiTiktok, SiYoutube } from "react-icons/si";
+import { SOCIAL_LINKS } from "@/lib/constants";
 
 interface ContactFormData {
   email: string;
@@ -14,23 +18,12 @@ interface ContactFormErrors {
 }
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-const sectionReveal = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.12
-    }
-  }
-};
-
-const revealItem = {
-  hidden: { opacity: 0, y: 28 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] }
-  }
+const SOCIAL_ICONS: Record<(typeof SOCIAL_LINKS)[number]["label"], JSX.Element> = {
+  TikTok: <SiTiktok className="h-4.5 w-4.5" aria-hidden="true" />,
+  Instagram: <SiInstagram className="h-4.5 w-4.5" aria-hidden="true" />,
+  YouTube: <SiYoutube className="h-4.5 w-4.5" aria-hidden="true" />,
+  Facebook: <FaFacebookF className="h-4.5 w-4.5" aria-hidden="true" />,
+  LinkedIn: <FaLinkedinIn className="h-4.5 w-4.5" aria-hidden="true" />
 };
 
 export function ContactSection(): JSX.Element {
@@ -46,10 +39,11 @@ export function ContactSection(): JSX.Element {
     event.preventDefault();
 
     const validationErrors: ContactFormErrors = {};
-    if (!form.email.trim()) validationErrors.email = "Email is required.";
-    else if (!EMAIL_REGEX.test(form.email)) validationErrors.email = "Enter a valid email address.";
-    if (!form.subject.trim()) validationErrors.subject = "Subject is required.";
-    if (!form.message.trim()) validationErrors.message = "Message is required.";
+    if (!form.email.trim()) validationErrors.email = "Խնդրում ենք լրացնել էլ. հասցեն։";
+    else if (!EMAIL_REGEX.test(form.email))
+      validationErrors.email = "Խնդրում ենք մուտքագրել վավեր էլ. հասցե։";
+    if (!form.subject.trim()) validationErrors.subject = "Խնդրում ենք լրացնել թեման։";
+    if (!form.message.trim()) validationErrors.message = "Խնդրում ենք լրացնել հաղորդագրությունը։";
 
     setErrors(validationErrors);
     setSubmitted(Object.keys(validationErrors).length === 0);
@@ -57,141 +51,144 @@ export function ContactSection(): JSX.Element {
 
   return (
     <motion.section
-      className="relative isolate overflow-hidden bg-night px-6 py-section text-cream sm:px-8 lg:py-section-lg"
-      initial="hidden"
-      variants={sectionReveal}
-      viewport={{ once: true, amount: 0.25 }}
-      whileInView="show"
+      className="bg-[#1f295f] px-6 pb-8 pt-10 text-white sm:px-8 md:pb-10 md:pt-14"
+      initial={{ opacity: 0, y: 32 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.22 }}
+      transition={{ duration: 0.68, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_15%_12%,rgba(212,161,50,0.2),transparent_30%),radial-gradient(circle_at_88%_72%,rgba(255,255,255,0.1),transparent_34%)]" />
+      <motion.div
+        className="mx-auto w-full max-w-[820px] text-center"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.25 }}
+        transition={{ duration: 0.55, delay: 0.08 }}
+      >
+        <h2 className="[font-family:'Trirong',serif] text-[38px] font-bold leading-none text-white sm:text-[48px]">
+          LET&apos;S STAY IN TOUCH
+        </h2>
 
-      <div className="container">
-        <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
-          <motion.div className="max-w-[620px]" variants={revealItem}>
-            <p className="text-label font-bold uppercase text-accent">Contact</p>
-            <h2 className="mt-5 text-[2.8rem] font-extrabold leading-none text-cream sm:text-[4.4rem]">
-              LET&apos;S STAY IN TOUCH
-            </h2>
-            <p className="mt-8 text-[1.05rem] leading-[1.85] text-cream/82 sm:text-[1.18rem]">
-              Are you ready to take the next step toward achieving your goals? Contact Vision
-              Buildaz today to schedule a consultation. Whether you&apos;re interested in one-on-one
-              coaching, workshops, or financial mentorship, we&apos;re here to help. You ready?
-              Let&apos;s grow!
-            </p>
+        <p className="mx-auto mt-8 max-w-[720px] [font-family:'Poppins',sans-serif] text-[18px] font-normal leading-[1.6] text-white sm:text-[20px]">
+          Are you ready to take the next step toward achieving your goals? Contact Vision Buildaz
+          today to schedule a consultation. Whether you&apos;re interested in one-on-one coaching,
+          workshops, or financial mentorship, we&apos;re here to help. You ready? Let&apos;s grow!
+        </p>
 
-            <div className="mt-16 border-t border-cream/14 pt-8">
-              <p className="text-[1.45rem] font-extrabold uppercase leading-tight text-cream">
-                YOU READY? LET&apos;S GROW!
-              </p>
-              <p className="mt-3 text-small font-semibold text-cream/68">
-                Copyright Vision Buildaz, LLC 2026
-              </p>
-            </div>
-          </motion.div>
+        <form className="mx-auto mt-10 w-full max-w-[560px]" noValidate onSubmit={handleSubmit}>
+          <p className="[font-family:'Poppins',sans-serif] text-[24px] font-normal leading-[1.2] text-white sm:text-[27px]">
+            Please Complete Form Details
+          </p>
 
-          <motion.div variants={revealItem}>
-            <form
-              className="rounded-panel border border-cream/12 bg-cream/[0.06] p-5 shadow-strong backdrop-blur-xl sm:p-8"
-              noValidate
-              onSubmit={handleSubmit}
-            >
-              <p className="mb-8 text-center text-[1rem] font-bold text-cream">
-                Please Complete Form Details
-              </p>
-
-              <div className="space-y-6">
-                <div>
-                  <div className="relative">
-                    <input
-                      className="peer h-field w-full rounded-control border border-cream/12 bg-cream/10 px-4 pt-5 text-[1rem] text-cream outline-none transition duration-premium ease-premium placeholder:text-transparent focus:border-accent focus:bg-cream/14 focus:ring-4 focus:ring-accent/20"
-                      id="contact-email"
-                      onChange={(e) => setForm((prev) => ({ ...prev, email: e.target.value }))}
-                      placeholder="Email"
-                      type="email"
-                      value={form.email}
-                    />
-                    <label
-                      className="pointer-events-none absolute left-4 top-2 text-[0.68rem] font-bold uppercase text-cream/62 transition-all duration-premium ease-premium peer-placeholder-shown:top-[1.12rem] peer-placeholder-shown:text-[0.8rem] peer-focus:top-2 peer-focus:text-[0.68rem] peer-focus:text-accent"
-                      htmlFor="contact-email"
-                    >
-                      EMAIL *
-                    </label>
-                  </div>
-                  {errors.email ? (
-                    <p className="mt-2 text-small text-accent">{errors.email}</p>
-                  ) : null}
-                </div>
-
-                <div>
-                  <div className="relative">
-                    <input
-                      className="peer h-field w-full rounded-control border border-cream/12 bg-cream/10 px-4 pt-5 text-[1rem] text-cream outline-none transition duration-premium ease-premium placeholder:text-transparent focus:border-accent focus:bg-cream/14 focus:ring-4 focus:ring-accent/20"
-                      id="contact-subject"
-                      onChange={(e) => setForm((prev) => ({ ...prev, subject: e.target.value }))}
-                      placeholder="Subject"
-                      type="text"
-                      value={form.subject}
-                    />
-                    <label
-                      className="pointer-events-none absolute left-4 top-2 text-[0.68rem] font-bold uppercase text-cream/62 transition-all duration-premium ease-premium peer-placeholder-shown:top-[1.12rem] peer-placeholder-shown:text-[0.8rem] peer-focus:top-2 peer-focus:text-[0.68rem] peer-focus:text-accent"
-                      htmlFor="contact-subject"
-                    >
-                      SUBJECT
-                    </label>
-                  </div>
-                  {errors.subject ? (
-                    <p className="mt-2 text-small text-accent">{errors.subject}</p>
-                  ) : null}
-                </div>
-
-                <div>
-                  <div className="relative">
-                    <textarea
-                      className="peer min-h-[150px] w-full resize-y rounded-control border border-cream/12 bg-cream/10 px-4 pt-10 text-[1rem] text-cream outline-none transition duration-premium ease-premium placeholder:text-cream/45 focus:border-accent focus:bg-cream/14 focus:ring-4 focus:ring-accent/20"
-                      id="contact-message"
-                      onChange={(e) => setForm((prev) => ({ ...prev, message: e.target.value }))}
-                      placeholder="Enter text here"
-                      value={form.message}
-                    />
-                    <label
-                      className="pointer-events-none absolute left-4 top-3 text-[0.68rem] font-bold uppercase text-cream/62 transition duration-premium ease-premium peer-focus:text-accent"
-                      htmlFor="contact-message"
-                    >
-                      ADD MESSAGE
-                    </label>
-                  </div>
-                  {errors.message ? (
-                    <p className="mt-2 text-small text-accent">{errors.message}</p>
-                  ) : null}
-                </div>
+          <div className="mt-6 space-y-4">
+            <div>
+              <div className="relative">
+                <input
+                  className="peer h-[56px] w-full rounded-[12px] border border-[#e1be14] bg-[#e1be14] px-4 pt-5 text-[18px] text-black outline-none transition duration-300 placeholder:text-transparent hover:brightness-[1.04] focus:-translate-y-[1px] focus:ring-2 focus:ring-[#f3dd78] focus:shadow-[0_10px_24px_rgba(227,189,20,0.28)]"
+                  id="contact-email"
+                  onChange={(e) => setForm((prev) => ({ ...prev, email: e.target.value }))}
+                  placeholder=" "
+                  type="email"
+                  value={form.email}
+                />
+                <label
+                  className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-100 [font-family:'Poppins',sans-serif] text-[14px] font-semibold uppercase leading-none text-black/70 transition-all duration-300 peer-placeholder-shown:left-1/2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-x-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:left-3 peer-focus:top-2 peer-focus:translate-x-0 peer-focus:translate-y-0 peer-focus:scale-75 peer-focus:text-black peer-[:not(:placeholder-shown)]:left-3 peer-[:not(:placeholder-shown)]:top-2 peer-[:not(:placeholder-shown)]:translate-x-0 peer-[:not(:placeholder-shown)]:translate-y-0 peer-[:not(:placeholder-shown)]:scale-75"
+                  htmlFor="contact-email"
+                >
+                  EMAIL *
+                </label>
               </div>
+              {errors.email ? <p className="mt-2 text-[16px] text-[#ffd77b]">{errors.email}</p> : null}
+            </div>
 
-              <motion.button
-                animate={{
-                  boxShadow: [
-                    "0 0 0 0 rgba(217,154,32,0.3), 0 20px 42px rgba(217,154,32,0.22)",
-                    "0 0 0 13px rgba(217,154,32,0), 0 26px 56px rgba(217,154,32,0.28)",
-                    "0 0 0 0 rgba(217,154,32,0.3), 0 20px 42px rgba(217,154,32,0.22)"
-                  ]
-                }}
-                className="mt-8 w-full rounded-control bg-accent px-6 py-4 text-small font-extrabold uppercase text-night transition duration-premium ease-premium hover:bg-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-night"
-                transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
-                type="submit"
-                whileHover={{ scale: 1.025 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                SUBMIT
-              </motion.button>
-
-              {submitted ? (
-                <p className="mt-4 text-center text-small font-semibold text-cream">
-                  Form submitted successfully.
-                </p>
+            <div>
+              <div className="relative">
+                <input
+                  className="peer h-[56px] w-full rounded-[12px] border border-[#e1be14] bg-[#e1be14] px-4 pt-5 text-[18px] text-black outline-none transition duration-300 placeholder:text-transparent hover:brightness-[1.04] focus:-translate-y-[1px] focus:ring-2 focus:ring-[#f3dd78] focus:shadow-[0_10px_24px_rgba(227,189,20,0.28)]"
+                  id="contact-subject"
+                  onChange={(e) => setForm((prev) => ({ ...prev, subject: e.target.value }))}
+                  placeholder=" "
+                  type="text"
+                  value={form.subject}
+                />
+                <label
+                  className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-100 [font-family:'Poppins',sans-serif] text-[14px] font-semibold uppercase leading-none text-black/70 transition-all duration-300 peer-placeholder-shown:left-1/2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-x-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:left-3 peer-focus:top-2 peer-focus:translate-x-0 peer-focus:translate-y-0 peer-focus:scale-75 peer-focus:text-black peer-[:not(:placeholder-shown)]:left-3 peer-[:not(:placeholder-shown)]:top-2 peer-[:not(:placeholder-shown)]:translate-x-0 peer-[:not(:placeholder-shown)]:translate-y-0 peer-[:not(:placeholder-shown)]:scale-75"
+                  htmlFor="contact-subject"
+                >
+                  SUBJECT
+                </label>
+              </div>
+              {errors.subject ? (
+                <p className="mt-2 text-[16px] text-[#ffd77b]">{errors.subject}</p>
               ) : null}
-            </form>
-          </motion.div>
+            </div>
+
+            <div>
+              <div className="relative">
+                <textarea
+                  className="peer h-[130px] w-full resize-none rounded-[12px] border border-[#e1be14] bg-[#e1be14] px-4 pt-9 text-center [font-family:'Poppins',sans-serif] text-[24px] text-black outline-none transition duration-300 placeholder:text-transparent hover:brightness-[1.04] focus:-translate-y-[1px] focus:ring-2 focus:ring-[#f3dd78] focus:shadow-[0_10px_24px_rgba(227,189,20,0.28)]"
+                  id="contact-message"
+                  onChange={(e) => setForm((prev) => ({ ...prev, message: e.target.value }))}
+                  placeholder=" "
+                  value={form.message}
+                />
+                <label
+                  className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-100 [font-family:'Poppins',sans-serif] text-[14px] font-semibold uppercase leading-none text-black/70 transition-all duration-300 peer-placeholder-shown:left-1/2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-x-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:left-1/2 peer-focus:top-2 peer-focus:-translate-x-1/2 peer-focus:translate-y-0 peer-focus:scale-75 peer-focus:text-black peer-[:not(:placeholder-shown)]:left-1/2 peer-[:not(:placeholder-shown)]:top-2 peer-[:not(:placeholder-shown)]:-translate-x-1/2 peer-[:not(:placeholder-shown)]:translate-y-0 peer-[:not(:placeholder-shown)]:scale-75"
+                  htmlFor="contact-message"
+                >
+                  ADD MESSAGE
+                </label>
+              </div>
+              {errors.message ? (
+                <p className="mt-2 text-[16px] text-[#ffd77b]">{errors.message}</p>
+              ) : null}
+            </div>
+          </div>
+
+          <button
+            className="group relative mt-6 inline-flex animate-cta-pulse items-center gap-2 overflow-hidden rounded-[12px] border border-[#d8b168] bg-[#050608] px-8 py-3 text-[26px] font-extrabold uppercase leading-none tracking-[0.04em] text-white transition-all duration-300 hover:scale-[1.05] hover:border-[#f2cf87] hover:shadow-[0_26px_44px_rgba(0,0,0,0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d8b168] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f295f]"
+            type="submit"
+          >
+            <span className="pointer-events-none absolute inset-[1px] rounded-[10px] bg-gradient-to-b from-[#1f232a] via-[#0b0e12] to-[#040506]" />
+            <span className="pointer-events-none absolute -left-1/2 top-0 h-full w-[40%] animate-cta-sheen bg-gradient-to-r from-transparent via-[#ffedbf]/35 to-transparent" />
+            <span className="pointer-events-none absolute inset-0 rounded-[12px] shadow-[inset_0_1px_0_rgba(255,233,188,0.34),inset_0_-1px_0_rgba(0,0,0,0.5)]" />
+            <span className="relative z-10">SUBMIT</span>
+            <ArrowRight
+              aria-hidden="true"
+              className="relative z-10 h-6 w-6 transition-transform duration-300 group-hover:translate-x-1"
+            />
+          </button>
+
+          {submitted ? (
+            <p className="mt-4 [font-family:'Poppins',sans-serif] text-[17px] text-[#f3dd78]">
+              Form submitted successfully.
+            </p>
+          ) : null}
+        </form>
+
+        <div className="mt-16">
+          <p className="[font-family:'Trirong',serif] text-[34px] font-bold leading-none text-white sm:text-[40px]">
+            YOU READY? LET&apos;S GROW!
+          </p>
+          <p className="mt-3 [font-family:'Trirong',serif] text-[18px] font-semibold leading-none text-white sm:text-[20px]">
+            Copyright Vision Buildaz, LLC 2026
+          </p>
+
+          <div className="mt-6 flex items-center justify-center gap-3">
+            {SOCIAL_LINKS.map(({ label, href }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label={label}
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#1f295f] transition hover:-translate-y-0.5"
+              >
+                {SOCIAL_ICONS[label]}
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
+      </motion.div>
     </motion.section>
   );
 }

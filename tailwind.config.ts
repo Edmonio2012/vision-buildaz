@@ -87,6 +87,30 @@ const config: Config = {
       },
       transitionTimingFunction: {
         premium: "var(--ease-premium)"
+      },
+      keyframes: {
+        ctaPulse: {
+          "0%, 100%": {
+            boxShadow:
+              "0 0 0 0 rgba(212, 165, 74, 0.3), 0 16px 30px rgba(0, 0, 0, 0.32)"
+          },
+          "50%": {
+            boxShadow:
+              "0 0 0 10px rgba(212, 165, 74, 0), 0 22px 42px rgba(0, 0, 0, 0.42)"
+          }
+        },
+        ctaSheen: {
+          "0%": {
+            transform: "translateX(-170%) skewX(-24deg)"
+          },
+          "55%, 100%": {
+            transform: "translateX(240%) skewX(-24deg)"
+          }
+        }
+      },
+      animation: {
+        "cta-pulse": "ctaPulse 2.4s ease-in-out infinite",
+        "cta-sheen": "ctaSheen 2.8s cubic-bezier(0.22, 1, 0.36, 1) infinite"
       }
     }
   },
