@@ -17,7 +17,7 @@ export function Mindset(): JSX.Element {
       <SocialMediaLinks variant="band" />
       <MindsetBeforeMillionsSection showOrderNow={false} />
       <MindsetWorkbookMirrorSection showOrderNow={false} />
-      <Copyright variant="social" />
+      <Copyright />
     </>
   );
 }

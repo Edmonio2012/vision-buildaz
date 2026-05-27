@@ -15,7 +15,7 @@ export function Home(): JSX.Element {
       <MindsetBeforeMillionsSection />
       <MindsetWorkbookMirrorSection />
       <ContactSection />
-      <Copyright variant="minimal" />
+      <Copyright />
     </>
   );
 }

@@ -11,7 +11,7 @@ export function About(): JSX.Element {
       <AboutSection1 />
       <AboutSection2 />
       <ContactSection />
-      <Copyright variant="social" />
+      <Copyright />
     </>
   );
 }

@@ -1,12 +1,23 @@
 // Root router component with a page-level entrance animation.
 import { motion } from "framer-motion";
-import { Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import { About } from "@/pages/About";
 import { ContactPage } from "@/pages/ContactPage";
 import { Home } from "@/pages/Home";
 import { Mindset } from "@/pages/Mindset";
 import { ProjectsPage } from "@/pages/ProjectsPage";
+
+function ScrollToTopOnRouteChange(): null {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [pathname]);
+
+  return null;
+}
 
 export default function App(): JSX.Element {
   return (
@@ -15,6 +26,7 @@ export default function App(): JSX.Element {
       initial={{ opacity: 0, y: 18 }}
       transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
     >
+      <ScrollToTopOnRouteChange />
       <Routes>
         <Route element={<Home />} path="/" />
         <Route element={<About />} path="/about" />
