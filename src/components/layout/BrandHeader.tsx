@@ -53,12 +53,12 @@ export function BrandHeader(): JSX.Element {
 
       <motion.nav
         aria-label="Primary"
-        className="mx-auto hidden h-[68px] w-full max-w-[1280px] items-center justify-center px-4 md:flex"
+        className="mx-auto hidden h-[68px] w-full max-w-[1280px] items-center justify-center overflow-hidden px-4 md:flex"
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.16, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
       >
-        <ul className="flex flex-nowrap items-center justify-center gap-x-8 overflow-x-auto">
+        <ul className="flex min-w-0 flex-nowrap items-center justify-center gap-x-8 overflow-visible">
           {HeaderLinks.map((item, index) => (
             <li key={item.label}>
               <motion.div whileHover={{ y: -1, scale: 1.03 }} whileTap={{ scale: 0.98 }}>

@@ -53,18 +53,18 @@ export function ContactSection(): JSX.Element {
         viewport={{ once: true, amount: 0.25 }}
         transition={{ duration: 0.55, delay: 0.08 }}
       >
-        <h2 className="[font-family:'Trirong',serif] text-[38px] font-bold leading-none text-white sm:text-[48px]">
+        <h2 className="[font-family:'Trirong',serif] text-[28px] font-bold leading-none text-white sm:text-[35px] md:text-[40px]">
           LET&apos;S STAY IN TOUCH
         </h2>
 
-        <p className="mx-auto mt-8 max-w-[720px] [font-family:'Poppins',sans-serif] text-[18px] font-normal leading-[1.6] text-white sm:text-[20px]">
+        <p className="mx-auto mt-8 max-w-[680px] [font-family:'Poppins',sans-serif] text-[16px] font-normal leading-[1.6] text-white sm:text-[18px] md:text-[19px]">
           Are you ready to take the next step toward achieving your goals? Contact Vision Buildaz
           today to schedule a consultation. Whether you&apos;re interested in one-on-one coaching,
           workshops, or financial mentorship, we&apos;re here to help. You ready? Let&apos;s grow!
         </p>
 
         <form className="mx-auto mt-10 w-full max-w-[560px]" noValidate onSubmit={handleSubmit}>
-          <p className="[font-family:'Poppins',sans-serif] text-[24px] font-normal leading-[1.2] text-white sm:text-[27px]">
+          <p className="[font-family:'Poppins',sans-serif] text-[18px] font-normal leading-[1.2] text-white sm:text-[20px] md:text-[22px]">
             Please Complete Form Details
           </p>
 
@@ -72,7 +72,7 @@ export function ContactSection(): JSX.Element {
             <div>
               <div className="relative">
                 <input
-                  className="peer h-[56px] w-full rounded-[12px] border border-[#e1be14] bg-[#e1be14] px-4 pt-5 text-[18px] text-black outline-none transition duration-300 placeholder:text-transparent hover:brightness-[1.04] focus:-translate-y-[1px] focus:ring-2 focus:ring-[#f3dd78] focus:shadow-[0_10px_24px_rgba(227,189,20,0.28)]"
+                  className="peer h-[54px] w-full rounded-[12px] border border-[#e1be14] bg-[#e1be14] px-4 pt-5 text-[16px] text-black outline-none transition duration-300 placeholder:text-transparent hover:brightness-[1.04] focus:-translate-y-[1px] focus:ring-2 focus:ring-[#f3dd78] focus:shadow-[0_10px_24px_rgba(227,189,20,0.28)] sm:text-[17px]"
                   id="contact-email"
                   onChange={(e) => setForm((prev) => ({ ...prev, email: e.target.value }))}
                   placeholder=" "
@@ -80,7 +80,7 @@ export function ContactSection(): JSX.Element {
                   value={form.email}
                 />
                 <label
-                  className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-100 [font-family:'Poppins',sans-serif] text-[14px] font-semibold uppercase leading-none text-black/70 transition-all duration-300 peer-placeholder-shown:left-1/2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-x-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:left-3 peer-focus:top-2 peer-focus:translate-x-0 peer-focus:translate-y-0 peer-focus:scale-75 peer-focus:text-black peer-[:not(:placeholder-shown)]:left-3 peer-[:not(:placeholder-shown)]:top-2 peer-[:not(:placeholder-shown)]:translate-x-0 peer-[:not(:placeholder-shown)]:translate-y-0 peer-[:not(:placeholder-shown)]:scale-75"
+                  className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-100 [font-family:'Poppins',sans-serif] text-[12px] font-semibold uppercase leading-none text-black/70 transition-all duration-300 peer-placeholder-shown:left-1/2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-x-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:left-3 peer-focus:top-2 peer-focus:translate-x-0 peer-focus:translate-y-0 peer-focus:scale-75 peer-focus:text-black peer-[:not(:placeholder-shown)]:left-3 peer-[:not(:placeholder-shown)]:top-2 peer-[:not(:placeholder-shown)]:translate-x-0 peer-[:not(:placeholder-shown)]:translate-y-0 peer-[:not(:placeholder-shown)]:scale-75"
                   htmlFor="contact-email"
                 >
                   EMAIL *
@@ -92,7 +92,7 @@ export function ContactSection(): JSX.Element {
             <div>
               <div className="relative">
                 <input
-                  className="peer h-[56px] w-full rounded-[12px] border border-[#e1be14] bg-[#e1be14] px-4 pt-5 text-[18px] text-black outline-none transition duration-300 placeholder:text-transparent hover:brightness-[1.04] focus:-translate-y-[1px] focus:ring-2 focus:ring-[#f3dd78] focus:shadow-[0_10px_24px_rgba(227,189,20,0.28)]"
+                  className="peer h-[54px] w-full rounded-[12px] border border-[#e1be14] bg-[#e1be14] px-4 pt-5 text-[16px] text-black outline-none transition duration-300 placeholder:text-transparent hover:brightness-[1.04] focus:-translate-y-[1px] focus:ring-2 focus:ring-[#f3dd78] focus:shadow-[0_10px_24px_rgba(227,189,20,0.28)] sm:text-[17px]"
                   id="contact-subject"
                   onChange={(e) => setForm((prev) => ({ ...prev, subject: e.target.value }))}
                   placeholder=" "
@@ -100,7 +100,7 @@ export function ContactSection(): JSX.Element {
                   value={form.subject}
                 />
                 <label
-                  className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-100 [font-family:'Poppins',sans-serif] text-[14px] font-semibold uppercase leading-none text-black/70 transition-all duration-300 peer-placeholder-shown:left-1/2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-x-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:left-3 peer-focus:top-2 peer-focus:translate-x-0 peer-focus:translate-y-0 peer-focus:scale-75 peer-focus:text-black peer-[:not(:placeholder-shown)]:left-3 peer-[:not(:placeholder-shown)]:top-2 peer-[:not(:placeholder-shown)]:translate-x-0 peer-[:not(:placeholder-shown)]:translate-y-0 peer-[:not(:placeholder-shown)]:scale-75"
+                  className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-100 [font-family:'Poppins',sans-serif] text-[12px] font-semibold uppercase leading-none text-black/70 transition-all duration-300 peer-placeholder-shown:left-1/2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-x-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:left-3 peer-focus:top-2 peer-focus:translate-x-0 peer-focus:translate-y-0 peer-focus:scale-75 peer-focus:text-black peer-[:not(:placeholder-shown)]:left-3 peer-[:not(:placeholder-shown)]:top-2 peer-[:not(:placeholder-shown)]:translate-x-0 peer-[:not(:placeholder-shown)]:translate-y-0 peer-[:not(:placeholder-shown)]:scale-75"
                   htmlFor="contact-subject"
                 >
                   SUBJECT
@@ -114,14 +114,14 @@ export function ContactSection(): JSX.Element {
             <div>
               <div className="relative">
                 <textarea
-                  className="peer h-[130px] w-full resize-none rounded-[12px] border border-[#e1be14] bg-[#e1be14] px-4 pt-9 text-center [font-family:'Poppins',sans-serif] text-[24px] text-black outline-none transition duration-300 placeholder:text-transparent hover:brightness-[1.04] focus:-translate-y-[1px] focus:ring-2 focus:ring-[#f3dd78] focus:shadow-[0_10px_24px_rgba(227,189,20,0.28)]"
+                  className="peer h-[120px] w-full resize-none rounded-[12px] border border-[#e1be14] bg-[#e1be14] px-4 pt-9 text-center [font-family:'Poppins',sans-serif] text-[18px] text-black outline-none transition duration-300 placeholder:text-transparent hover:brightness-[1.04] focus:-translate-y-[1px] focus:ring-2 focus:ring-[#f3dd78] focus:shadow-[0_10px_24px_rgba(227,189,20,0.28)] sm:text-[19px]"
                   id="contact-message"
                   onChange={(e) => setForm((prev) => ({ ...prev, message: e.target.value }))}
                   placeholder=" "
                   value={form.message}
                 />
                 <label
-                  className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-100 [font-family:'Poppins',sans-serif] text-[14px] font-semibold uppercase leading-none text-black/70 transition-all duration-300 peer-placeholder-shown:left-1/2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-x-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:left-1/2 peer-focus:top-2 peer-focus:-translate-x-1/2 peer-focus:translate-y-0 peer-focus:scale-75 peer-focus:text-black peer-[:not(:placeholder-shown)]:left-1/2 peer-[:not(:placeholder-shown)]:top-2 peer-[:not(:placeholder-shown)]:-translate-x-1/2 peer-[:not(:placeholder-shown)]:translate-y-0 peer-[:not(:placeholder-shown)]:scale-75"
+                  className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-100 [font-family:'Poppins',sans-serif] text-[12px] font-semibold uppercase leading-none text-black/70 transition-all duration-300 peer-placeholder-shown:left-1/2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-x-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:left-1/2 peer-focus:top-2 peer-focus:-translate-x-1/2 peer-focus:translate-y-0 peer-focus:scale-75 peer-focus:text-black peer-[:not(:placeholder-shown)]:left-1/2 peer-[:not(:placeholder-shown)]:top-2 peer-[:not(:placeholder-shown)]:-translate-x-1/2 peer-[:not(:placeholder-shown)]:translate-y-0 peer-[:not(:placeholder-shown)]:scale-75"
                   htmlFor="contact-message"
                 >
                   ADD MESSAGE
@@ -134,7 +134,7 @@ export function ContactSection(): JSX.Element {
           </div>
 
           <button
-            className="group relative mt-6 inline-flex animate-cta-pulse items-center gap-2 overflow-hidden rounded-[12px] border border-[#d8b168] bg-[#050608] px-8 py-3 text-[26px] font-extrabold uppercase leading-none tracking-[0.04em] text-white transition-all duration-300 hover:scale-[1.05] hover:border-[#f2cf87] hover:shadow-[0_26px_44px_rgba(0,0,0,0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d8b168] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f295f]"
+            className="group relative mt-6 inline-flex animate-cta-pulse items-center gap-2 overflow-hidden rounded-[12px] border border-[#d8b168] bg-[#050608] px-7 py-3 text-[20px] font-extrabold uppercase leading-none tracking-[0.04em] text-white transition-all duration-300 hover:scale-[1.05] hover:border-[#f2cf87] hover:shadow-[0_26px_44px_rgba(0,0,0,0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d8b168] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f295f] sm:text-[22px]"
             type="submit"
           >
             <span className="pointer-events-none absolute inset-[1px] rounded-[10px] bg-gradient-to-b from-[#1f232a] via-[#0b0e12] to-[#040506]" />
@@ -143,7 +143,7 @@ export function ContactSection(): JSX.Element {
             <span className="relative z-10">SUBMIT</span>
             <ArrowRight
               aria-hidden="true"
-              className="relative z-10 h-6 w-6 transition-transform duration-300 group-hover:translate-x-1"
+              className="relative z-10 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 sm:h-6 sm:w-6"
             />
           </button>
 

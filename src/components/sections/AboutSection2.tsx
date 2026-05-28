@@ -1,11 +1,11 @@
 export function AboutSection2(): JSX.Element {
   return (
     <section className="bg-[#efefef] px-6 py-8 sm:px-8 md:py-10">
-      <div className="mx-auto max-w-[940px]">
-        <h3 className="[font-family:'Poppins',sans-serif] text-[34px] font-semibold leading-[1.1] text-black sm:text-[38px] md:text-[40px]">
+      <div className="mx-auto max-w-[880px]">
+        <h3 className="[font-family:'Poppins',sans-serif] text-[28px] font-semibold leading-[1.1] text-black sm:text-[32px] md:text-[36px]">
           About Us
         </h3>
-        <div className="mt-4 space-y-7 [font-family:'Poppins',sans-serif] text-[22px] font-normal leading-[1.42] text-[#2f3c4f] sm:text-[23px] md:text-[24px]">
+        <div className="mt-4 space-y-6 [font-family:'Poppins',sans-serif] text-[18px] font-normal leading-[1.52] text-[#2f3c4f] sm:text-[19px] md:text-[20px]">
           <p>
             Vision Buildaz, LLC, is a personal development platform and movement designed to help
             people move from pain to purpose, one breakthrough at a time.

@@ -40,7 +40,8 @@ export function VisionIntroSection(): JSX.Element {
           >
             <p>
               <span className="font-semibold italic text-cream">
-                Vision Buildaz /You Ready? Let&apos;s Grow&trade;/
+                Vision Buildaz /You Ready? Let&apos;s Grow
+                <sup className="text-[0.48em] leading-none">&trade;</sup>/
               </span>{" "}
               is a coaching &amp; mentoring platform that breathes life into dreams and helps you to
               realize your vision. Led by Founder WD Brown, members receive guidance in realizing

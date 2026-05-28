@@ -21,9 +21,9 @@ export function MindsetWorkbookMirrorSection({
         viewport={{ once: true, amount: 0.25 }}
         transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="mx-auto grid w-full max-w-[1040px] grid-cols-1 items-center gap-10 lg:grid-cols-[460px_1fr] lg:gap-16">
+        <div className="mx-auto grid w-full max-w-[980px] grid-cols-1 items-center gap-10 lg:grid-cols-[380px_1fr] lg:gap-14">
           <motion.div
-            className="order-1 mx-auto w-full max-w-[460px]"
+            className="order-1 mx-auto w-full max-w-[330px] sm:max-w-[360px] lg:max-w-[380px]"
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.35 }}
@@ -34,7 +34,7 @@ export function MindsetWorkbookMirrorSection({
                 alt="Mindset Before Millions workbook cover"
                 className="h-full w-full object-cover"
                 loading="lazy"
-                src="/images/assets/mindset-before-millions-book.png"
+                src="/images/assets/mindset-before-millions-workbook.png"
               />
             </div>
           </motion.div>
@@ -80,15 +80,15 @@ export function MindsetWorkbookMirrorSection({
             {showOrderNow ? (
               <Link
                 to="/mindset"
-                className="group relative mt-12 inline-flex animate-cta-pulse items-center gap-2 overflow-hidden rounded-[12px] border border-[#d8b168] bg-[#050608] px-8 py-4 text-[28px] font-extrabold uppercase leading-none tracking-[0.04em] text-white transition-all duration-300 hover:scale-[1.05] hover:border-[#f2cf87] hover:shadow-[0_26px_44px_rgba(0,0,0,0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d8b168] focus-visible:ring-offset-2 focus-visible:ring-offset-[#ececec]"
+                className="group relative mt-8 inline-flex animate-cta-pulse items-center gap-1.5 overflow-hidden rounded-[9px] border border-[#d8b168] bg-[#050608] px-5 py-2.5 text-[15px] font-bold uppercase leading-none tracking-[0.04em] text-white transition-all duration-300 hover:scale-[1.03] hover:border-[#f2cf87] hover:shadow-[0_14px_26px_rgba(0,0,0,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d8b168] focus-visible:ring-offset-2 focus-visible:ring-offset-[#ececec] sm:text-[16px] md:px-6 md:py-3 md:text-[18px]"
               >
-                <span className="pointer-events-none absolute inset-[1px] rounded-[10px] bg-gradient-to-b from-[#1f232a] via-[#0b0e12] to-[#040506]" />
+                <span className="pointer-events-none absolute inset-[1px] rounded-[7px] bg-gradient-to-b from-[#1f232a] via-[#0b0e12] to-[#040506]" />
                 <span className="pointer-events-none absolute -left-1/2 top-0 h-full w-[40%] animate-cta-sheen bg-gradient-to-r from-transparent via-[#ffedbf]/35 to-transparent" />
-                <span className="pointer-events-none absolute inset-0 rounded-[12px] shadow-[inset_0_1px_0_rgba(255,233,188,0.34),inset_0_-1px_0_rgba(0,0,0,0.5)]" />
+                <span className="pointer-events-none absolute inset-0 rounded-[9px] shadow-[inset_0_1px_0_rgba(255,233,188,0.34),inset_0_-1px_0_rgba(0,0,0,0.5)]" />
                 <span className="relative z-10">Order Now</span>
                 <ArrowRight
                   aria-hidden="true"
-                  className="relative z-10 h-7 w-7 transition-transform duration-300 group-hover:translate-x-1"
+                  className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 md:h-5 md:w-5"
                 />
               </Link>
             ) : null}
