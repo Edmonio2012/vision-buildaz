@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { PhoneCountryCodeSelect } from "@/components/ui/PhoneCountryCodeSelect";
+import { PhoneNumberField } from "@/components/ui/PhoneNumberField";
 
 export function MindsetMainSection(): JSX.Element {
   return (
@@ -55,15 +55,7 @@ export function MindsetMainSection(): JSX.Element {
                 <label className="block [font-family:'Poppins',sans-serif] text-[17px] text-[#2f3c4f]">
                   Phone
                 </label>
-                <div className="mt-2 grid grid-cols-[76px_minmax(0,1fr)] gap-2 sm:grid-cols-[90px_minmax(0,1fr)] md:grid-cols-[98px_minmax(0,1fr)]">
-                  <PhoneCountryCodeSelect className="w-full" defaultValue="US" />
-                  <input
-                    className="h-[52px] min-w-0 w-full border border-[#9c9c9c] bg-transparent px-3 text-[15px] text-[#1f2d41] outline-none focus:border-[#7f7f7f] sm:text-[17px]"
-                    inputMode="tel"
-                    placeholder="Phone number"
-                    type="tel"
-                  />
-                </div>
+                <PhoneNumberField className="mt-2" defaultCountry="US" />
               </div>
             </div>
 

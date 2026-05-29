@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 
+import { AnnouncementBanner } from "@/components/ui/AnnouncementBanner";
 import { About } from "@/pages/About";
 import { ContactPage } from "@/pages/ContactPage";
 import { Home } from "@/pages/Home";
@@ -26,6 +27,7 @@ export default function App(): JSX.Element {
       initial={{ opacity: 0, y: 18 }}
       transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
     >
+      <AnnouncementBanner />
       <ScrollToTopOnRouteChange />
       <Routes>
         <Route element={<Home />} path="/" />
