@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const HeaderLinks = [
   { label: "Let's Grow", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Our Founder", href: "/about" },
+  { label: "Our Founder", href: "/wdbrown" },
   { label: "Contact", href: "/contact" },
   { label: "Let's Grow Series", href: "/projects" }
 ] as const;

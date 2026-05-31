@@ -5,10 +5,11 @@ import { Route, Routes, useLocation } from "react-router-dom";
 
 import { AnnouncementBanner } from "@/components/ui/AnnouncementBanner";
 import { About } from "@/pages/About";
-import { ContactPage } from "@/pages/ContactPage";
+import { Contact } from "@/pages/Contact";
 import { Home } from "@/pages/Home";
 import { Mindset } from "@/pages/Mindset";
 import { ProjectsPage } from "@/pages/ProjectsPage";
+import { WDBrown } from "@/pages/WDBrown";
 
 function ScrollToTopOnRouteChange(): null {
   const { pathname } = useLocation();
@@ -33,7 +34,8 @@ export default function App(): JSX.Element {
         <Route element={<Home />} path="/" />
         <Route element={<About />} path="/about" />
         <Route element={<ProjectsPage />} path="/projects" />
-        <Route element={<ContactPage />} path="/contact" />
+        <Route element={<Contact />} path="/contact" />
+        <Route element={<WDBrown />} path="/wdbrown" />
         <Route element={<Mindset />} path="/mindset" />
       </Routes>
     </motion.div>

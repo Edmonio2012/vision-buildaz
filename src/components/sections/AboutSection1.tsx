@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 
-export function AboutSection1(): JSX.Element {
+interface AboutSection1Props {
+  showLearnMore?: boolean;
+}
+
+export function AboutSection1({ showLearnMore = true }: AboutSection1Props): JSX.Element {
   return (
     <motion.section
       className="relative w-full overflow-hidden bg-[#303a6d]"
@@ -21,12 +25,14 @@ export function AboutSection1(): JSX.Element {
             <p className="[font-family:'dinneuzeitgroteskltw01-_812426',sans-serif] mt-2 whitespace-nowrap text-[34px] font-semibold leading-[0.95] text-white sm:text-[46px] md:text-[64px]">
               &amp; COACHING
             </p>
-            <button
-              className="mt-7 h-[50px] w-full max-w-[300px] bg-[#a4890b] [font-family:'Poppins',sans-serif] text-[18px] font-normal leading-none tracking-[0.04em] text-white transition hover:brightness-95 sm:text-[20px]"
-              type="button"
-            >
-              LEARN MORE &gt;&gt;
-            </button>
+            {showLearnMore ? (
+              <button
+                className="mt-7 h-[50px] w-full max-w-[300px] bg-[#a4890b] [font-family:'Poppins',sans-serif] text-[18px] font-normal leading-none tracking-[0.04em] text-white transition hover:brightness-95 sm:text-[20px]"
+                type="button"
+              >
+                LEARN MORE &gt;&gt;
+              </button>
+            ) : null}
           </div>
         </div>
 

@@ -3,7 +3,7 @@ import { SiInstagram, SiTiktok, SiYoutube } from "react-icons/si";
 
 import { SOCIAL_LINKS } from "@/lib/constants";
 
-type SocialVariant = "band" | "inline" | "footer";
+type SocialVariant = "band" | "inline" | "footer" | "squares";
 
 interface SocialMediaLinksProps {
   variant?: SocialVariant;
@@ -17,8 +17,11 @@ const ICONS: Record<(typeof SOCIAL_LINKS)[number]["label"], JSX.Element> = {
   LinkedIn: <FaLinkedinIn className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
 };
 
-function linksContent(linkClassName: string): JSX.Element[] {
-  return SOCIAL_LINKS.map(({ label, href }) => (
+function linksContent(
+  linkClassName: string,
+  links: typeof SOCIAL_LINKS = SOCIAL_LINKS
+): JSX.Element[] {
+  return links.map(({ label, href }) => (
     <a
       key={label}
       href={href}
@@ -50,6 +53,22 @@ export function SocialMediaLinks({ variant = "inline" }: SocialMediaLinksProps):
       <div className="mt-6 flex items-center justify-center gap-2.5 sm:gap-3">
         {linksContent(
           "flex h-8 w-8 items-center justify-center rounded-full bg-white text-[#1f295f] transition hover:-translate-y-0.5 sm:h-9 sm:w-9"
+        )}
+      </div>
+    );
+  }
+
+  if (variant === "squares") {
+    const founderOrder = ["Instagram", "Facebook", "LinkedIn", "YouTube", "TikTok"] as const;
+    const founderLinks = founderOrder
+      .map((label) => SOCIAL_LINKS.find((link) => link.label === label))
+      .filter((link): link is (typeof SOCIAL_LINKS)[number] => Boolean(link));
+
+    return (
+      <div className="flex items-center justify-center gap-5">
+        {linksContent(
+          "flex h-10 w-10 items-center justify-center rounded-[3px] bg-[#1f295f] text-white shadow-[0_6px_12px_rgba(17,24,39,0.16)] transition hover:-translate-y-0.5 hover:brightness-110 sm:h-11 sm:w-11",
+          founderLinks
         )}
       </div>
     );
