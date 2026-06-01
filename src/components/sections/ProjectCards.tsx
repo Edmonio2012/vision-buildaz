@@ -8,13 +8,13 @@ const PROJECTS = [
 export function ProjectCardsSection(): JSX.Element {
   return (
     <section className="py-10">
-      <div className="container">
-        <h2 className="mb-4 text-xl font-semibold">Featured Projects</h2>
+      <div className="container flex flex-col gap-4">
+        <h2 className="text-xl font-semibold">Featured Projects</h2>
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {PROJECTS.map((project) => (
-            <li className="rounded-md border p-4" key={project.name}>
+            <li className="flex flex-col gap-2 rounded-md border p-4" key={project.name}>
               <h3 className="font-medium">{project.name}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{project.summary}</p>
+              <p className="text-sm text-muted-foreground">{project.summary}</p>
             </li>
           ))}
         </ul>

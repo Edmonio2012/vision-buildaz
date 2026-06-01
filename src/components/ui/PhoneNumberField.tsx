@@ -41,7 +41,7 @@ export function PhoneNumberField({
   }, [fullNumber, isTouched, nationalNumber.length]);
 
   return (
-    <div className={className}>
+    <div className={`flex flex-col gap-1.5 ${className ?? ""}`}>
       <div className="grid grid-cols-[82px_minmax(0,1fr)] gap-2 sm:grid-cols-[92px_minmax(0,1fr)]">
         <PhoneCountryCodeSelect
           className={codeClassName}
@@ -70,7 +70,7 @@ export function PhoneNumberField({
       </div>
       {errorMessage ? (
         <p
-          className={`mt-1.5 [font-family:'Poppins',sans-serif] text-[12px] font-semibold text-[#b3261e] ${errorClassName ?? ""}`}
+          className={`[font-family:'Poppins',sans-serif] text-[12px] font-semibold text-[#b3261e] ${errorClassName ?? ""}`}
         >
           {errorMessage}
         </p>

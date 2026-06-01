@@ -40,13 +40,13 @@ export function MindsetWorkbookMirrorSection({
           </motion.div>
 
           <motion.div
-            className="order-2"
+            className="order-2 flex flex-col items-start gap-8"
             initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.35 }}
             transition={{ duration: 0.66, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="max-w-[470px] space-y-8">
+            <div className="flex max-w-[470px] flex-col gap-8">
               {!showFullCopy ? (
                 <p className="[font-family:'Poppins',sans-serif] text-[18px] font-normal leading-[1.62] text-[#26354b] sm:text-[19px] md:text-[21px] lg:text-[23px] xl:text-[24px]">
                   Transformation doesn&apos;t happen just by reading, it happens through{" "}
@@ -80,7 +80,7 @@ export function MindsetWorkbookMirrorSection({
             {showOrderNow ? (
               <Link
                 to="/mindset"
-                className="group relative mt-8 inline-flex animate-cta-pulse items-center gap-1.5 overflow-hidden rounded-[9px] border border-[#d8b168] bg-[#050608] px-5 py-2.5 text-[15px] font-bold uppercase leading-none tracking-[0.04em] text-white transition-all duration-300 hover:scale-[1.03] hover:border-[#f2cf87] hover:shadow-[0_14px_26px_rgba(0,0,0,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d8b168] focus-visible:ring-offset-2 focus-visible:ring-offset-[#ececec] sm:text-[16px] md:px-6 md:py-3 md:text-[18px]"
+                className="group relative inline-flex animate-cta-pulse items-center gap-1.5 overflow-hidden rounded-[9px] border border-[#d8b168] bg-[#050608] px-5 py-2.5 text-[15px] font-bold uppercase leading-none tracking-[0.04em] text-white transition-all duration-300 hover:scale-[1.03] hover:border-[#f2cf87] hover:shadow-[0_14px_26px_rgba(0,0,0,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d8b168] focus-visible:ring-offset-2 focus-visible:ring-offset-[#ececec] sm:text-[16px] md:px-6 md:py-3 md:text-[18px]"
               >
                 <span className="pointer-events-none absolute inset-[1px] rounded-[7px] bg-gradient-to-b from-[#1f232a] via-[#0b0e12] to-[#040506]" />
                 <span className="pointer-events-none absolute -left-1/2 top-0 h-full w-[40%] animate-cta-sheen bg-gradient-to-r from-transparent via-[#ffedbf]/35 to-transparent" />

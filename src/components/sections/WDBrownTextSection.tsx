@@ -14,12 +14,12 @@ const paragraphs = [
 export function WDBrownTextSection(): JSX.Element {
   return (
     <section className="w-full bg-white px-6 pb-14 pt-2 sm:px-8 md:pb-20">
-      <div className="mx-auto w-full max-w-[904px]">
-        <h1 className="mb-10 [font-family:'Poppins',sans-serif] text-[24px] font-normal italic leading-[1.35] text-[#26323b] md:text-[26px]">
+      <div className="mx-auto flex w-full max-w-[904px] flex-col gap-10">
+        <h1 className="[font-family:'Poppins',sans-serif] text-[24px] font-normal italic leading-[1.35] text-[#26323b] md:text-[26px]">
           Our Founder: WD Brown
         </h1>
 
-        <div className="space-y-10 [font-family:'Poppins',sans-serif] text-[23px] font-normal leading-[1.42] text-[#26323b] md:text-[26px]">
+        <div className="flex flex-col gap-10 [font-family:'Poppins',sans-serif] text-[23px] font-normal leading-[1.42] text-[#26323b] md:text-[26px]">
           {paragraphs.map((paragraph, index) => (
             <p key={index}>
               {paragraph ===

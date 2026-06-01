@@ -1,11 +1,11 @@
 export function AboutSection2(): JSX.Element {
   return (
     <section className="bg-[#efefef] px-6 py-8 sm:px-8 md:py-10">
-      <div className="mx-auto max-w-[880px]">
+      <div className="mx-auto flex max-w-[880px] flex-col gap-4">
         <h3 className="[font-family:'Poppins',sans-serif] text-[28px] font-semibold leading-[1.1] text-black sm:text-[32px] md:text-[36px]">
           About Us
         </h3>
-        <div className="mt-4 space-y-6 [font-family:'Poppins',sans-serif] text-[18px] font-normal leading-[1.52] text-[#2f3c4f] sm:text-[19px] md:text-[20px]">
+        <div className="flex flex-col gap-6 [font-family:'Poppins',sans-serif] text-[18px] font-normal leading-[1.52] text-[#2f3c4f] sm:text-[19px] md:text-[20px]">
           <p>
             Vision Buildaz, LLC, is a personal development platform and movement designed to help
             people move from pain to purpose, one breakthrough at a time.
@@ -23,12 +23,12 @@ export function AboutSection2(): JSX.Element {
             build something that lasts. We don&apos;t coach from a pedestal, we build beside you.
           </p>
 
-          <div>
+          <div className="flex flex-col gap-3">
             <p className="font-semibold text-black">Services</p>
-            <p className="mt-1">
+            <p>
               At Vision Buildaz, we offer real-life strategies and community-based support through:
             </p>
-            <ul className="mt-3 list-disc pl-8">
+            <ul className="list-disc pl-8">
               <li>1:1 and group coaching</li>
               <li>Motivational speaking and interactive workshops</li>
               <li>Books and digital resources</li>

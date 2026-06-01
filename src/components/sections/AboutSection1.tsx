@@ -18,16 +18,18 @@ export function AboutSection1({ showLearnMore = true }: AboutSection1Props): JSX
 
       <div className="relative mx-auto grid w-full max-w-[1280px] grid-cols-1 items-end md:grid-cols-2">
         <div className="flex min-h-[220px] items-center px-6 py-8 sm:px-8 md:min-h-[520px] md:justify-end md:pr-6 lg:min-h-[560px] lg:pr-8">
-          <div className="w-full text-center md:max-w-[430px] md:text-left">
-            <h2 className="[font-family:'avenida-w01',fantasy] whitespace-nowrap text-[28px] font-normal leading-[0.95] text-white sm:text-[38px] md:text-[50px]">
-              Tailored Mentorship
-            </h2>
-            <p className="[font-family:'dinneuzeitgroteskltw01-_812426',sans-serif] mt-2 whitespace-nowrap text-[34px] font-semibold leading-[0.95] text-white sm:text-[46px] md:text-[64px]">
-              &amp; COACHING
-            </p>
+          <div className="flex w-full flex-col items-center gap-7 text-center md:max-w-[430px] md:items-start md:text-left">
+            <div className="flex flex-col gap-2">
+              <h2 className="[font-family:'avenida-w01',fantasy] whitespace-nowrap text-[28px] font-normal leading-[0.95] text-white sm:text-[38px] md:text-[50px]">
+                Tailored Mentorship
+              </h2>
+              <p className="[font-family:'dinneuzeitgroteskltw01-_812426',sans-serif] whitespace-nowrap text-[34px] font-semibold leading-[0.95] text-white sm:text-[46px] md:text-[64px]">
+                &amp; COACHING
+              </p>
+            </div>
             {showLearnMore ? (
               <button
-                className="mt-7 h-[50px] w-full max-w-[300px] bg-[#a4890b] [font-family:'Poppins',sans-serif] text-[18px] font-normal leading-none tracking-[0.04em] text-white transition hover:brightness-95 sm:text-[20px]"
+                className="h-[50px] w-full max-w-[300px] bg-[#a4890b] [font-family:'Poppins',sans-serif] text-[18px] font-normal leading-none tracking-[0.04em] text-white transition hover:brightness-95 sm:text-[20px]"
                 type="button"
               >
                 LEARN MORE &gt;&gt;

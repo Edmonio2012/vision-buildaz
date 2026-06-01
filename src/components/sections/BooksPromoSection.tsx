@@ -50,12 +50,12 @@ export function BooksPromoSection(): JSX.Element {
           variants={sectionReveal}
         >
           <motion.div className="order-2 lg:order-1" variants={revealItem}>
-            <div className="max-w-[520px]">
+            <div className="flex max-w-[520px] flex-col gap-5">
               <p className="text-label font-bold uppercase text-accent">Featured release</p>
-              <h2 className="mt-5 text-[2.7rem] font-extrabold leading-[0.98] text-heading sm:text-[4rem] lg:text-[5rem]">
+              <h2 className="text-[2.7rem] font-extrabold leading-[0.98] text-heading sm:text-[4rem] lg:text-[5rem]">
                 New Books Alert!
               </h2>
-              <p className="mt-5 text-[2.1rem] font-extrabold leading-none text-dominant sm:text-[3rem]">
+              <p className="text-[2.1rem] font-extrabold leading-none text-dominant sm:text-[3rem]">
                 Order Today!
               </p>
             </div>

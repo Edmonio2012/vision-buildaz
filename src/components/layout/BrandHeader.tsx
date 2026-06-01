@@ -7,7 +7,7 @@ const HeaderLinks = [
   { label: "About", href: "/about" },
   { label: "Our Founder", href: "/wdbrown" },
   { label: "Contact", href: "/contact" },
-  { label: "Let's Grow Series", href: "/projects" }
+  { label: "Let's Grow Series", href: "/youreadyletsgrowdigital" }
 ] as const;
 
 const LogoSrc = "/images/logo/logo.png";
@@ -123,11 +123,11 @@ export function BrandHeader(): JSX.Element {
       <nav
         aria-label="Mobile Primary"
         className={`mx-auto w-[calc(100%-2rem)] max-w-[520px] overflow-hidden rounded-2xl border border-[#d1b260]/55 bg-[#edd79b]/95 p-3 shadow-[0_6px_14px_rgba(17,24,39,0.1)] transition-opacity duration-100 md:hidden ${
-          mobileMenuOpen ? "mb-3 max-h-72 opacity-100" : "pointer-events-none mb-0 max-h-0 border-transparent p-0 opacity-0"
+          mobileMenuOpen ? "max-h-72 opacity-100" : "pointer-events-none max-h-0 border-transparent p-0 opacity-0"
         }`}
         id="mobile-primary-menu"
       >
-        <ul className="space-y-1">
+        <ul className="flex flex-col gap-1">
           {HeaderLinks.map((item, index) => (
             <li key={item.label}>
               <Link

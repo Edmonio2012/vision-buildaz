@@ -6,7 +6,7 @@ import { NAV_LINKS } from "@/lib/constants";
 export function Sidebar(): JSX.Element {
   return (
     <aside className="hidden w-64 border-r p-4 lg:block">
-      <ul className="space-y-2">
+      <ul className="flex flex-col gap-2">
         {NAV_LINKS.map((item) => (
           <li key={item.href}>
             <Link className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-foreground" to={item.href}>

@@ -3,7 +3,7 @@ import { SiInstagram, SiTiktok, SiYoutube } from "react-icons/si";
 
 import { SOCIAL_LINKS } from "@/lib/constants";
 
-type SocialVariant = "band" | "inline" | "footer" | "squares";
+type SocialVariant = 1 | 2 | "band" | "inline" | "footer" | "squares";
 
 interface SocialMediaLinksProps {
   variant?: SocialVariant;
@@ -36,7 +36,9 @@ function linksContent(
 }
 
 export function SocialMediaLinks({ variant = "inline" }: SocialMediaLinksProps): JSX.Element {
-  if (variant === "band") {
+  const resolvedVariant = variant === 1 ? "inline" : variant === 2 ? "squares" : variant;
+
+  if (resolvedVariant === "band") {
     return (
       <section className="flex h-[86px] w-full items-center bg-[url('/images/assets/subheader-bg.jpg')] bg-cover bg-center bg-no-repeat px-6 sm:px-8">
         <div className="mx-auto flex w-full max-w-[980px] flex-wrap items-center justify-center gap-2.5 sm:gap-4">
@@ -48,9 +50,9 @@ export function SocialMediaLinks({ variant = "inline" }: SocialMediaLinksProps):
     );
   }
 
-  if (variant === "footer") {
+  if (resolvedVariant === "footer") {
     return (
-      <div className="mt-6 flex items-center justify-center gap-2.5 sm:gap-3">
+      <div className="flex items-center justify-center gap-2.5 sm:gap-3">
         {linksContent(
           "flex h-8 w-8 items-center justify-center rounded-full bg-white text-[#1f295f] transition hover:-translate-y-0.5 sm:h-9 sm:w-9"
         )}
@@ -58,7 +60,7 @@ export function SocialMediaLinks({ variant = "inline" }: SocialMediaLinksProps):
     );
   }
 
-  if (variant === "squares") {
+  if (resolvedVariant === "squares") {
     const founderOrder = ["Instagram", "Facebook", "LinkedIn", "YouTube", "TikTok"] as const;
     const founderLinks = founderOrder
       .map((label) => SOCIAL_LINKS.find((link) => link.label === label))
@@ -75,7 +77,7 @@ export function SocialMediaLinks({ variant = "inline" }: SocialMediaLinksProps):
   }
 
   return (
-    <div className="mt-4 flex items-center gap-2.5 md:justify-end md:gap-3">
+    <div className="flex items-center gap-2.5 md:justify-end md:gap-3">
       {linksContent(
         "flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#2e396a] shadow-[0_3px_8px_rgba(0,0,0,0.18)] transition hover:-translate-y-0.5 hover:shadow-[0_6px_12px_rgba(0,0,0,0.22)] sm:h-12 sm:w-12"
       )}

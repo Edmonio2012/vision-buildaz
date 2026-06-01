@@ -30,12 +30,12 @@ export function VisionIntroSection(): JSX.Element {
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_0%,rgba(212,161,50,0.18),transparent_30%)]" />
 
       <div className="container">
-        <div className="mx-auto max-w-[940px]">
+        <div className="mx-auto flex max-w-[940px] flex-col gap-8">
           <motion.p className="text-label font-bold uppercase text-accent" variants={revealItem}>
             The movement
           </motion.p>
           <motion.div
-            className="mt-8 space-y-8 text-[1.15rem] leading-[1.9] text-cream/86 sm:text-[1.35rem]"
+            className="flex flex-col gap-8 text-[1.15rem] leading-[1.9] text-cream/86 sm:text-[1.35rem]"
             variants={revealItem}
           >
             <p>
