@@ -11,6 +11,7 @@ import { Mindset } from "@/pages/Mindset";
 import { ProjectsPage } from "@/pages/ProjectsPage";
 import { WDBrown } from "@/pages/WDBrown";
 import { YouReadyLetsGrowDigital } from "@/pages/YouReadyLetsGrowDigital";
+import { YouReadyLetsGrowDigitalCourse } from "@/pages/YouReadyLetsGrowDigitalCourse";
 
 function ScrollToTopOnRouteChange(): null {
   const { pathname } = useLocation();
@@ -38,6 +39,7 @@ export default function App(): JSX.Element {
         <Route element={<Contact />} path="/contact" />
         <Route element={<WDBrown />} path="/wdbrown" />
         <Route element={<YouReadyLetsGrowDigital />} path="/youreadyletsgrowdigital" />
+        <Route element={<YouReadyLetsGrowDigitalCourse />} path="/youreadyletsgrowdigital/:courseId" />
         <Route element={<Mindset />} path="/mindset" />
       </Routes>
     </motion.div>

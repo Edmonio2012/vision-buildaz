@@ -8,3 +8,4 @@ For the About page hero founder image, add: about-section1-founder.png
 For the announcement popup "You Ready? Let's Grow!" artwork, add: announcement-grow-logo.png
 For the WD Brown founder page intro image, add: wdbrown-founder.png
 For the You Ready? Let's Grow! Digital page hero image, add: yrlgd-hero-founder.png
+For classroom course thumbnails, add: classroom-starter-library.png, classroom-momentum-media.png, classroom-mini-webinar.png, classroom-books-series.png
