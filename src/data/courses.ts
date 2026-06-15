@@ -3,9 +3,12 @@ export interface ContentItem {
   type: "video" | "pdf" | "link" | "text";
   title: string;
   description?: string;
+  content?: string;
   url?: string;
   duration?: string;
   fileSize?: string;
+  status?: "visible" | "hidden";
+  thumbnail?: string;
 }
 
 export interface Course {
@@ -13,6 +16,9 @@ export interface Course {
   title: string;
   description: string;
   thumbnail?: string;
+  status?: "visible" | "hidden";
+  category?: string;
+  tags?: string[];
   items: ContentItem[];
 }
 

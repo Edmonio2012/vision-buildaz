@@ -2,6 +2,8 @@ import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { FormEvent, useState } from "react";
 
+import { createId, getContactSubmissions, STORAGE_KEYS, writeJson } from "@/lib/adminData";
+
 interface ContactFormData {
   email: string;
   subject: string;
@@ -35,7 +37,27 @@ export function ContactSection(): JSX.Element {
     if (!form.message.trim()) validationErrors.message = "Խնդրում ենք լրացնել հաղորդագրությունը։";
 
     setErrors(validationErrors);
-    setSubmitted(Object.keys(validationErrors).length === 0);
+
+    if (Object.keys(validationErrors).length === 0) {
+      const submissions = getContactSubmissions();
+      writeJson(STORAGE_KEYS.contacts, [
+        {
+          id: createId("lead"),
+          name: form.subject.trim() || "Website visitor",
+          email: form.email.trim(),
+          phone: "",
+          message: form.message.trim(),
+          subject: form.subject.trim(),
+          submittedAt: new Date().toISOString(),
+          read: false
+        },
+        ...submissions
+      ]);
+      setSubmitted(true);
+      setForm({ email: "", subject: "", message: "" });
+    } else {
+      setSubmitted(false);
+    }
   };
 
   return (

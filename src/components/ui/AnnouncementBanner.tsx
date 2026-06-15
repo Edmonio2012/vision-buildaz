@@ -3,14 +3,29 @@ import { X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { PhoneNumberField } from "@/components/ui/PhoneNumberField";
+import { ADMIN_DATA_EVENT, getAnnouncementData, type AnnouncementData } from "@/lib/adminData";
 
 const BANNER_DISMISSED_KEY = "bannerDismissed";
 
 export function AnnouncementBanner(): JSX.Element | null {
+  const [announcement, setAnnouncement] = useState<AnnouncementData>(() => getAnnouncementData());
   const [shouldRender, setShouldRender] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const refreshAnnouncement = (): void => setAnnouncement(getAnnouncementData());
+
+    window.addEventListener(ADMIN_DATA_EVENT, refreshAnnouncement);
+    window.addEventListener("storage", refreshAnnouncement);
+
+    return () => {
+      window.removeEventListener(ADMIN_DATA_EVENT, refreshAnnouncement);
+      window.removeEventListener("storage", refreshAnnouncement);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!announcement.active) return;
     if (sessionStorage.getItem(BANNER_DISMISSED_KEY) === "true") return;
 
     const timer = window.setTimeout(() => {
@@ -19,7 +34,7 @@ export function AnnouncementBanner(): JSX.Element | null {
     }, 500);
 
     return () => window.clearTimeout(timer);
-  }, []);
+  }, [announcement.active]);
 
   useEffect(() => {
     if (!shouldRender) return;
@@ -37,7 +52,7 @@ export function AnnouncementBanner(): JSX.Element | null {
     setIsVisible(false);
   };
 
-  if (!shouldRender) return null;
+  if (!announcement.active || !shouldRender) return null;
 
   return (
     <div className="pointer-events-none fixed inset-x-0 top-0 z-[2147483647] flex justify-center px-4 pt-8 sm:pt-10">
@@ -76,17 +91,11 @@ export function AnnouncementBanner(): JSX.Element | null {
               <div className="order-1 flex flex-col gap-5 md:order-2">
                 <div className="flex flex-col gap-11">
                   <h2 className="[font-family:'Poppins',sans-serif] text-center text-[25px] font-medium leading-[0.96] text-black sm:text-[28px]">
-                    We&apos;re Live Every Tuesday &amp;
-                    <br />
-                    Thursday at 7PM EST!
+                    {announcement.headline}
                   </h2>
 
-                  <p className="[font-family:'Poppins',sans-serif] text-[16px] font-normal leading-[1.05] text-black">
-                    Free coaching, mindset shifts, encouragement,
-                    <br />
-                    and conversations that help you move forward.
-                    <br />
-                    Tuesdays &amp; Thursdays at 7PM EST.
+                  <p className="[font-family:'Poppins',sans-serif] text-[16px] font-normal leading-[1.4] text-black">
+                    {announcement.body}
                   </p>
                 </div>
 
@@ -133,12 +142,12 @@ export function AnnouncementBanner(): JSX.Element | null {
                     type="email"
                   />
 
-                  <button
-                    className="h-[54px] w-full rounded-[2px] bg-[#2f3d48] [font-family:'Poppins',sans-serif] text-[16px] font-semibold text-white transition hover:bg-[#26323b]"
-                    type="button"
+                  <a
+                    className="flex h-[54px] w-full items-center justify-center rounded-[2px] bg-[#2f3d48] [font-family:'Poppins',sans-serif] text-[16px] font-semibold text-white transition hover:bg-[#26323b]"
+                    href={announcement.ctaLink}
                   >
-                    Subscribe
-                  </button>
+                    {announcement.ctaText}
+                  </a>
               </div>
             </div>
           </motion.aside>

@@ -1,7 +1,26 @@
 import { motion } from "framer-motion";
 import { ArrowRight, GraduationCap } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+
+import { ADMIN_DATA_EVENT, getCoursesData, getVisibleCourses } from "@/lib/adminData";
 
 export function ClassroomHero(): JSX.Element {
+  const [classroomData, setClassroomData] = useState(() => getCoursesData());
+  const visibleCourses = useMemo(() => getVisibleCourses(), [classroomData]);
+  const totalItems = visibleCourses.reduce((sum, course) => sum + course.items.length, 0);
+
+  useEffect(() => {
+    const refreshClassroom = (): void => setClassroomData(getCoursesData());
+
+    window.addEventListener(ADMIN_DATA_EVENT, refreshClassroom);
+    window.addEventListener("storage", refreshClassroom);
+
+    return () => {
+      window.removeEventListener(ADMIN_DATA_EVENT, refreshClassroom);
+      window.removeEventListener("storage", refreshClassroom);
+    };
+  }, []);
+
   return (
     <motion.section
       className="relative w-full overflow-hidden bg-[#303a6d]"
@@ -20,12 +39,12 @@ export function ClassroomHero(): JSX.Element {
               Digital Classroom
             </p>
             <h1 className="[font-family:'dinneuzeitgroteskltw01-_812426',sans-serif] text-[34px] font-semibold italic leading-[0.95] text-white sm:text-[44px] md:text-[54px]">
-              YOU READY? LET&apos;S GROW!
+              {classroomData.hero.headline}
             </h1>
           </div>
 
           <p className="[font-family:'dinneuzeitgroteskltw01-_812426',sans-serif] text-[22px] font-semibold italic leading-[1.48] text-white sm:text-[28px] md:text-[32px]">
-            Learn, download, plan, and grow through the digital resources from Vision Buildaz.
+            {classroomData.hero.subtext}
           </p>
 
           <div className="flex flex-col gap-3 sm:flex-row md:justify-start">
@@ -55,7 +74,7 @@ export function ClassroomHero(): JSX.Element {
           <div className="absolute bottom-8 right-6 hidden items-center gap-3 bg-white/92 px-5 py-4 shadow-[0_16px_34px_rgba(17,24,39,0.18)] md:flex lg:right-12">
             <GraduationCap className="h-7 w-7 text-[#a4890b]" aria-hidden="true" />
             <p className="[font-family:'Poppins',sans-serif] text-[14px] font-semibold uppercase tracking-[0.08em] text-[#132151]">
-              4 courses · 10 resources
+              {visibleCourses.length} courses · {totalItems} resources
             </p>
           </div>
         </div>

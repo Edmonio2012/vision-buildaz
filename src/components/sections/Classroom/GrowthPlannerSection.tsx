@@ -17,7 +17,7 @@ import {
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { courses } from "@/data/courses";
+import { getVisibleCourses } from "@/lib/adminData";
 
 const STORAGE_KEY = "yrlgd_growth_plan";
 
@@ -88,6 +88,7 @@ function slugTask(task: string): string {
 export function GrowthPlannerSection(): JSX.Element {
   const [planner, setPlanner] = useState<PlannerState>(() => readPlannerState());
   const [newTask, setNewTask] = useState("");
+  const courses = getVisibleCourses();
 
   const activeFocus = focusOptions.find((focus) => focus.id === planner.focusId) ?? focusOptions[0];
   const recommendedCourse = courses.find((course) => course.id === activeFocus.courseId) ?? courses[0];

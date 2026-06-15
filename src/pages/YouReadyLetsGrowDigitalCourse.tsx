@@ -1,17 +1,36 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, BookOpenCheck, Library } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 
 import { BrandHeader } from "@/components/layout/BrandHeader";
 import { Copyright } from "@/components/layout/Copyright";
 import { CourseDetailPanel } from "@/components/sections/Classroom/CourseDetailPanel";
 import { useCourseProgress } from "@/components/sections/Classroom/useCourseProgress";
-import { courses } from "@/data/courses";
+import { incrementCount, STORAGE_KEYS } from "@/lib/adminData";
+import { getVisibleCourses } from "@/lib/adminData";
+import type { Course } from "@/data/courses";
+
+function readPreviewCourse(): Course | null {
+  try {
+    const stored = sessionStorage.getItem(STORAGE_KEYS.previewCourse);
+    return stored ? (JSON.parse(stored) as Course) : null;
+  } catch {
+    return null;
+  }
+}
 
 export function YouReadyLetsGrowDigitalCourse(): JSX.Element {
   const { courseId } = useParams();
-  const course = courses.find((item) => item.id === courseId);
+  const [previewCourse, setPreviewCourse] = useState<Course | null>(() => readPreviewCourse());
+  const courses = useMemo(() => getVisibleCourses(), []);
+  const isPreview = Boolean(previewCourse && previewCourse.id === courseId);
+  const course = isPreview ? previewCourse : courses.find((item) => item.id === courseId);
   const { completedItems, getCourseProgress, toggleItem } = useCourseProgress();
+
+  useEffect(() => {
+    if (course && !isPreview) incrementCount(STORAGE_KEYS.courseOpens, course.id);
+  }, [course, isPreview]);
 
   if (!course) {
     return <Navigate replace to="/youreadyletsgrowdigital" />;
@@ -22,6 +41,24 @@ export function YouReadyLetsGrowDigitalCourse(): JSX.Element {
   return (
     <>
       <BrandHeader />
+      {isPreview ? (
+        <div className="sticky top-0 z-50 flex items-center justify-between gap-4 bg-[#a4890b] px-5 py-3 text-white">
+          <p className="[font-family:'Poppins',sans-serif] text-[13px] font-bold uppercase tracking-[0.12em]">
+            PREVIEW MODE - This is how students see this course
+          </p>
+          <button
+            className="border border-white/40 px-3 py-1 text-[12px] font-semibold uppercase"
+            onClick={() => {
+              sessionStorage.removeItem(STORAGE_KEYS.previewCourse);
+              setPreviewCourse(null);
+              window.close();
+            }}
+            type="button"
+          >
+            Close
+          </button>
+        </div>
+      ) : null}
       <section className="bg-[#ececec] px-6 py-12 text-[#132151] sm:px-8 md:py-16">
         <div className="mx-auto flex w-full max-w-[1180px] flex-col gap-8">
           <Link

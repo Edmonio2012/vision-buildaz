@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 
 import { AnnouncementBanner } from "@/components/ui/AnnouncementBanner";
+import { Admin } from "@/pages/Admin";
 import { About } from "@/pages/About";
 import { Contact } from "@/pages/Contact";
 import { Home } from "@/pages/Home";
@@ -41,6 +42,7 @@ export default function App(): JSX.Element {
         <Route element={<YouReadyLetsGrowDigital />} path="/youreadyletsgrowdigital" />
         <Route element={<YouReadyLetsGrowDigitalCourse />} path="/youreadyletsgrowdigital/:courseId" />
         <Route element={<Mindset />} path="/mindset" />
+        <Route element={<Admin />} path="/admin" />
       </Routes>
     </motion.div>
   );
