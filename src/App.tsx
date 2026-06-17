@@ -9,6 +9,7 @@ import { About } from "@/pages/About";
 import { Contact } from "@/pages/Contact";
 import { Home } from "@/pages/Home";
 import { Mindset } from "@/pages/Mindset";
+import { NewHome } from "@/pages/NewHome";
 import { ProjectsPage } from "@/pages/ProjectsPage";
 import { WDBrown } from "@/pages/WDBrown";
 import { YouReadyLetsGrowDigital } from "@/pages/YouReadyLetsGrowDigital";
@@ -34,7 +35,8 @@ export default function App(): JSX.Element {
       <AnnouncementBanner />
       <ScrollToTopOnRouteChange />
       <Routes>
-        <Route element={<Home />} path="/" />
+        <Route element={<NewHome />} path="/" />
+        <Route element={<Home />} path="/recenthome" />
         <Route element={<About />} path="/about" />
         <Route element={<ProjectsPage />} path="/projects" />
         <Route element={<Contact />} path="/contact" />
