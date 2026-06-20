@@ -3,35 +3,44 @@ import { motion } from "framer-motion";
 export function WixIntroductionSection(): JSX.Element {
   return (
     <motion.section
-      className="bg-[#f0eefc] py-10 sm:py-12 md:py-14"
+      className="scroll-mt-0 bg-[#f0eefc]"
+      id="about-vision-buildaz"
       initial={{ opacity: 0, y: 18 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       viewport={{ once: true, amount: 0.25 }}
       whileInView={{ opacity: 1, y: 0 }}
     >
-      <div className="container">
-        <div className="max-w-[780px] text-[#31323d]">
-          <h2 className="inline-block border-b-[7px] border-[#a99124] pb-0 [font-family:'Poppins',sans-serif] text-[30px] font-extrabold uppercase leading-[1.05] text-[#060814] sm:text-[34px] md:text-[38px]">
-            Introduction
-          </h2>
+      <div
+        className="flex h-[112px] items-center justify-center bg-cover bg-center bg-no-repeat sm:h-[124px] lg:h-[133px]"
+        style={{ backgroundImage: "url('/images/assets/subheader-bg.jpg')" }}
+      >
+        <h2 className="px-4 text-center [font-family:'Trirong',serif] text-[31px] font-bold leading-none text-white drop-shadow-[0_3px_2px_rgba(23,32,52,0.38)] sm:text-[38px] lg:text-[43px]">
+          About Vision Buildaz
+        </h2>
+      </div>
 
-          <div className="mt-6 flex flex-col gap-7 [font-family:'Poppins',sans-serif] text-[18px] font-normal leading-[1.42] sm:text-[21px] md:text-[24px]">
-            <p>From mindset to wealth 🔑 Let&apos;s build what you see 👑</p>
+      <div className="mx-auto w-full max-w-[966px] px-6 py-8 sm:px-8 sm:py-9 lg:px-0 lg:py-[30px]">
+        <div className="max-w-[800px] text-[#263652]">
+          <h3 className="[font-family:Arial,sans-serif] text-[32px] font-bold leading-none sm:text-[36px] lg:text-[40px]">
+            What we do
+          </h3>
+          <div aria-hidden="true" className="mt-2 h-[9px] w-[294px] max-w-full bg-[#b78400]" />
 
-            <p>You Ready? Let&apos;s Grow!</p>
-
+          <div className="mt-3 flex flex-col gap-5 [font-family:Arial,sans-serif] text-[20px] font-normal leading-[1.06] sm:text-[23px] lg:text-[27px]">
             <p>
-              Here, you will receive guidance in realizing purpose and fulfilling destiny for
-              entrepreneurs, career professionals, and personal brands. At Vision Buildaz, we
-              provide tailored mentorship and coaching to help entrepreneurs and personal brands
-              unlock their full potential.
+              Vision Buildaz exists to help people move from ideas to action. The focus is not just motivation. It is
+              practical, purposeful growth that helps individuals, entrepreneurs, and emerging leaders think better,
+              move smarter, and build with greater intention.
             </p>
 
             <p>
-              Founded by WD Brown, our mission is to offer practical, strategic guidance through
-              personalized coaching sessions—virtual or in-person. Whether you&apos;re building a
-              business or developing a personal brand, Vision Buildaz is here to help you achieve
-              success. Let&apos;s work together to turn your vision into reality.
+              Whether someone is refining a vision, rebuilding after a setback, or preparing for a new season, Vision
+              Buildaz offers guidance that starts on the inside and moves outward into real life and real decisions.
+            </p>
+
+            <p>
+              Through coaching, consulting, books, and transformational conversation, Vision Buildaz helps people
+              move from uncertainty to action with greater confidence and clarity.
             </p>
           </div>
         </div>

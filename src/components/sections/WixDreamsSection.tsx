@@ -4,83 +4,279 @@ import { Link } from "react-router-dom";
 export function WixDreamsSection(): JSX.Element {
   return (
     <motion.section
-      className="overflow-hidden bg-[#f0eefc] text-[#343440]"
+      className="scroll-mt-0 overflow-hidden bg-white text-[#263652]"
+      id="achieve-your-dreams"
       initial={{ opacity: 0, y: 18 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       viewport={{ once: true, amount: 0.18 }}
       whileInView={{ opacity: 1, y: 0 }}
     >
-      <div className="bg-[#262b66] py-5 text-white">
-        <div className="container flex flex-col items-center justify-center gap-5 sm:flex-row sm:gap-16">
-          <h2 className="[font-family:'Trirong',serif] text-[27px] font-bold uppercase leading-none drop-shadow-[0_2px_1px_rgba(0,0,0,0.25)] sm:text-[33px]">
-            Achieve Your Dreams
-          </h2>
-          <Link
-            className="inline-flex h-[56px] min-w-[184px] items-center justify-center border border-white/65 px-8 [font-family:'Poppins',sans-serif] text-[18px] font-medium uppercase leading-none text-white transition hover:bg-white hover:text-[#262b66]"
-            to="/contact"
+      <div
+        className="flex h-[112px] items-center justify-center bg-cover bg-center bg-no-repeat sm:h-[124px] lg:h-[133px]"
+        style={{ backgroundImage: "url('/images/assets/subheader-bg.jpg')" }}
+      >
+        <h2 className="px-4 text-center [font-family:'Trirong',Georgia,serif] text-[30px] font-bold leading-none text-white drop-shadow-[0_3px_2px_rgba(23,32,52,0.38)] sm:text-[36px] lg:text-[39px]">
+          Coaching and Consulting Services
+        </h2>
+      </div>
+
+      <div
+        className="px-6 py-10 sm:px-8 sm:py-12 lg:h-[431px] lg:px-0 lg:py-[39px]"
+        style={{ height: "431px", paddingBottom: 0, paddingTop: "32px" }}
+      >
+        <div className="mx-auto w-full max-w-[966px]">
+          <div
+            className="max-w-[800px] [font-family:Arial,sans-serif] text-[21px] font-normal leading-[1.15] text-[#263652] sm:text-[24px] lg:ml-[44px] lg:text-[27px]"
+            style={{ fontSize: "25px", letterSpacing: "-0.3px", lineHeight: "31px", marginLeft: "44px" }}
           >
-            Book Now &gt;&gt;
-          </Link>
+            <div className="flex flex-col" style={{ gap: "30px" }}>
+              <p>
+                Vision Buildaz provides coaching and consulting support for
+                <br />
+                individuals, entrepreneurs, and personal brands that are ready to
+                <br />
+                grow with more clarity and structure. The goal is to help clients
+                <br />
+                strengthen their thinking, make wiser decisions, and move forward
+                <br />
+                with a plan that aligns with who they are and where they are headed.
+              </p>
+
+              <p>
+                Whether the need is personal development, strategic guidance,
+                <br />
+                mentorship, or support through transition, the approach is practical,
+                <br />
+                direct, and growth-centered.
+              </p>
+            </div>
+
+            <Link
+              className="mt-[33px] inline-flex h-[56px] min-w-[236px] items-center justify-center rounded-[7px] bg-[#ffd154] px-6 [font-family:Georgia,serif] text-[14px] italic leading-none text-[#47370a] shadow-[0_8px_18px_rgba(0,0,0,0.1)] transition hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-[#1f295b] focus:ring-offset-2 lg:ml-[31px]"
+              to="/contact"
+              style={{ marginLeft: "31px", marginTop: "42px" }}
+            >
+              APPLY FOR COACHING&gt;&gt;
+            </Link>
+          </div>
         </div>
       </div>
 
-      <div className="container py-14 sm:py-18 md:py-20">
-        <div className="max-w-[760px]">
-          <p className="[font-family:'Poppins',sans-serif] text-[38px] font-light uppercase leading-[1.55] tracking-[0.04em] text-[#b79a62] sm:text-[48px] md:text-[56px]">
-            Helping Entreprenuers Unlock Their Full Potential
-          </p>
-
-          <p className="mt-7 max-w-[560px] [font-family:'Poppins',sans-serif] text-[24px] font-normal leading-[1.28] text-[#393946] sm:text-[28px] md:text-[31px]">
-            Vision Buildaz was founded by WD Brown, a seasoned entrepreneur with decades of
-            experience helping others achieve their dreams. We believe that success is the result
-            of clear vision, strategic planning, and ongoing support.
-          </p>
-        </div>
-
-        <div className="relative mt-8 min-h-[245px]">
-          <div className="absolute left-0 top-0 z-10 flex aspect-square w-[210px] items-center justify-center overflow-hidden rounded-full border-[3px] border-[#17235c] bg-[#d9dbe8] shadow-[0_12px_28px_rgba(32,39,88,0.22)] sm:w-[245px]">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_33%_29%,rgba(255,255,255,0.72),transparent_16%),linear-gradient(135deg,#f4f4f8_0%,#9397aa_42%,#23273e_100%)]" />
-            <div className="relative h-[122px] w-[122px] rounded-full border-[14px] border-[#11131f] bg-[#161829] shadow-[0_0_0_10px_rgba(255,255,255,0.26)] sm:h-[138px] sm:w-[138px]" />
-            <div className="absolute right-[36px] top-[32px] h-[112px] w-[34px] rotate-[-12deg] rounded-full bg-[linear-gradient(90deg,#777b8f,#e7e8ef,#42465c)] shadow-[0_14px_22px_rgba(0,0,0,0.25)] sm:right-[44px] sm:top-[36px] sm:h-[128px]" />
-            <div className="absolute bottom-[24px] right-[28px] h-[5px] w-[104px] rotate-[-18deg] rounded-full bg-[#26283a] sm:bottom-[32px] sm:right-[35px]" />
-          </div>
-
-          <Link
-            className="absolute left-[105px] right-0 top-[39px] z-0 flex min-h-[132px] items-center justify-center bg-[linear-gradient(90deg,#b37539_0%,#efcf76_37%,#f2d878_57%,#b9773a_100%)] px-8 text-center transition hover:brightness-105 sm:left-[122px] sm:top-[56px]"
-            to="/youreadyletsgrowdigital"
+      <div
+        className="flex h-[124px] items-center bg-cover bg-center bg-no-repeat px-6 sm:h-[132px] sm:px-8 lg:h-[134px] lg:px-0"
+        style={{
+          backgroundImage: "url('/images/assets/subheader-bg.jpg')",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          height: "134px"
+        }}
+      >
+        <div
+          className="mx-auto flex w-full max-w-[804px] flex-col items-center justify-center gap-4 sm:flex-row sm:justify-between sm:gap-8"
+          style={{
+            alignItems: "center",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            marginInline: "auto",
+            maxWidth: "804px",
+            width: "100%"
+          }}
+        >
+          <h2 className="[font-family:'Trirong',Georgia,serif] text-center text-[29px] font-bold uppercase leading-none text-white sm:text-[34px] lg:text-[39px]">
+            You Ready? Let&apos;s Grow!
+          </h2>
+          <a
+            className="inline-flex h-[65px] w-[200px] items-center justify-center bg-black [clip-path:polygon(0_0,90%_0,100%_20%,100%_100%,0_100%)] [font-family:Arial,sans-serif] text-[20px] font-normal leading-none text-white transition hover:bg-[#171717] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#d3a452]"
+            href="#book-series"
+            style={{
+              backgroundColor: "#000",
+              clipPath: "polygon(0 0, 90% 0, 100% 20%, 100% 100%, 0 100%)",
+              display: "inline-flex",
+              flexShrink: 0,
+              height: "65px",
+              width: "200px"
+            }}
           >
-            <span className="[font-family:'Poppins',sans-serif] text-[29px] font-light uppercase leading-[1.05] text-[#22275d] sm:text-[34px]">
-              Join Our
-              <br />
-              <strong className="font-extrabold">Podcast &gt;&gt;</strong>
-            </span>
-          </Link>
+            BOOK SERIES
+          </a>
         </div>
+      </div>
 
-        <div className="mt-10">
-          <div className="max-w-[920px] [font-family:'Poppins',sans-serif] text-[24px] leading-[1.26] text-[#393946] sm:text-[28px] md:text-[31px]">
+      <div
+        className="px-6 py-9 sm:px-8 sm:py-10 lg:px-0 lg:py-[34px]"
+        id="book-series"
+        style={{ paddingTop: "27px" }}
+      >
+        <div className="mx-auto w-full max-w-[966px]">
+          <div
+            className="max-w-[800px] [font-family:Arial,sans-serif] text-[21px] font-normal leading-[1.35] text-[#263652] sm:text-[24px] lg:ml-[44px] lg:text-[27px]"
+            style={{ marginLeft: "44px" }}
+          >
             <p>
-              Explore our library of recommended books as well as books authored by W. D. Brown.
-              These resources provide in-depth guidance on everything from entrepreneurship and
-              leadership to personal finance and self-development.
+              Explore our library of recommended books as well as books authored by WD Brown. These resources provide
+              in-depth guidance on everything from entrepreneurship and leadership to personal finance and
+              self-development.
             </p>
 
             <p className="mt-8">
-              Each book is designed to give you the tools you need to make informed decisions and
-              take control of your future.
+              Each book is designed to give you the tools you need to make informed decisions and take control of your
+              future.
             </p>
           </div>
+        </div>
 
-          <div className="mt-16 grid items-center gap-8 md:grid-cols-[minmax(0,1fr)_390px] md:gap-12">
-            <p className="[font-family:'Poppins',sans-serif] text-[40px] font-light uppercase leading-[1.55] tracking-[0.04em] text-[#b79a62] sm:text-[48px] md:text-[56px]">
-              Mindset Before Millions
+        <div
+          className="mx-auto mt-16 grid w-full grid-cols-1 items-start gap-10 lg:mt-[77px]"
+          style={{
+            columnGap: "30px",
+            gridTemplateColumns: "450px 404px",
+            marginInline: "auto",
+            marginTop: "77px",
+            maxWidth: "884px"
+          }}
+        >
+          <div
+            className="[font-family:Arial,sans-serif] text-[22px] font-normal leading-[1.35] text-[#263652] sm:text-[25px] lg:text-[27px]"
+            style={{
+              fontSize: "25px",
+              letterSpacing: "-0.3px",
+              lineHeight: "36.5px",
+              paddingTop: "60px",
+              width: "450px"
+            }}
+          >
+            <div className="flex flex-col" style={{ gap: "32px" }}>
+              <p>
+                Wealth without alignment comes at
+                <br />
+                a cost few talk about.
+              </p>
+
+              <p>
+                Mindset Before Millions challenges
+                <br />
+                the belief that financial success
+                <br />
+                requires sacrificing health,
+                <br />
+                relationships, and fulfillment. WD
+                <br />
+                Brown reframes wealth not as
+                <br />
+                endless accumulation, but as
+                <br />
+                purpose — a tool meant to support a
+                <br />
+                life of balance, meaning, and lasting
+                <br />
+                impact.
+              </p>
+            </div>
+
+            <Link
+              className="mt-16 inline-flex h-[59px] w-[291px] items-center justify-center bg-black [clip-path:polygon(0_0,96%_0,100%_18%,100%_100%,4%_100%,0_82%)] [font-family:Arial,sans-serif] text-[20px] font-normal leading-none text-white transition hover:bg-[#171717] focus:outline-none focus:ring-2 focus:ring-[#1f295b] focus:ring-offset-2 lg:ml-[70px]"
+              style={{
+                backgroundColor: "#000",
+                clipPath: "polygon(0 0, 96% 0, 100% 18%, 100% 100%, 4% 100%, 0 82%)",
+                display: "inline-flex",
+                height: "59px",
+                marginLeft: "70px",
+                marginTop: "90px",
+                width: "291px"
+              }}
+              to="/mindset"
+            >
+              ORDER NOW &gt;&gt;
+            </Link>
+          </div>
+
+          <img
+            alt="Mindset Before Millions book cover"
+            className="h-auto w-full border-[5px] border-black object-cover"
+            loading="lazy"
+            src="/images/assets/mindset-before-millions-book.png"
+            style={{ width: "404px" }}
+          />
+        </div>
+      </div>
+
+      <div
+        aria-hidden="true"
+        className="h-[70px] bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/images/assets/subheader-bg.jpg')", height: "70px" }}
+      />
+
+      <div className="bg-white px-6 py-9 sm:px-8 sm:py-10 lg:px-0">
+        <div
+          className="mx-auto grid w-full grid-cols-1 items-start gap-10 lg:mt-[35px]"
+          style={{
+            columnGap: "47px",
+            gridTemplateColumns: "404px 450px",
+            marginInline: "auto",
+            marginTop: "35px",
+            maxWidth: "966px"
+          }}
+        >
+          <img
+            alt="Mindset Before Millions workbook cover"
+            className="h-auto w-full border-[5px] border-black object-cover"
+            loading="lazy"
+            src="/images/assets/mindset-before-millions-workbook.png"
+            style={{ width: "404px" }}
+          />
+
+          <div
+            className="[font-family:Arial,sans-serif] text-[22px] font-normal leading-[1.35] text-[#263652] sm:text-[25px] lg:text-[27px]"
+            style={{
+              fontSize: "25px",
+              letterSpacing: "-0.3px",
+              lineHeight: "36.5px",
+              paddingTop: "90px",
+              width: "450px"
+            }}
+          >
+            <p>
+              Transformation doesn&apos;t happen just
+              <br />
+              by reading, it happens through
+              <br />
+              reflection.The Mindset Before
+              <br />
+              Millions Workbook is the practical
+              <br />
+              companion to the book, created to
+              <br />
+              help you apply its principles to your
+              <br />
+              own life. Through guided prompts
+              <br />
+              and dedicated journaling space, this
+              <br />
+              workbook invites you to examine
+              <br />
+              how your pursuit of success is
+              <br />
+              impacting your health, relationships,
+              <br />
+              boundaries, and sense of fulfillment.
             </p>
 
-            <img
-              alt="Mindset Before Millions book cover by WD Brown"
-              className="mx-auto w-full max-w-[340px] object-contain md:max-w-[390px]"
-              src="/images/assets/mindset-before-millions-book.png"
-            />
+            <Link
+              className="mt-16 inline-flex h-[59px] w-[291px] items-center justify-center bg-black [clip-path:polygon(0_0,96%_0,100%_18%,100%_100%,4%_100%,0_82%)] [font-family:Arial,sans-serif] text-[20px] font-normal leading-none text-white transition hover:bg-[#171717] focus:outline-none focus:ring-2 focus:ring-[#1f295b] focus:ring-offset-2"
+              style={{
+                backgroundColor: "#000",
+                clipPath: "polygon(0 0, 96% 0, 100% 18%, 100% 100%, 4% 100%, 0 82%)",
+                display: "inline-flex",
+                height: "59px",
+                marginLeft: "16px",
+                marginTop: "60px",
+                width: "291px"
+              }}
+              to="/mindset"
+            >
+              ORDER NOW &gt;&gt;
+            </Link>
           </div>
         </div>
       </div>
