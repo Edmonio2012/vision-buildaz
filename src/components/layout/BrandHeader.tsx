@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const HeaderLinks = [
-  { label: "Let's Grow", href: "/" },
+  { label: "Home", href: "/" },
+  { label: "Let's Grow", href: "/youreadyletsgrowdigital" },
   { label: "About", href: "/about" },
   { label: "Our Founder", href: "/wdbrown" },
-  { label: "Contact", href: "/contact" },
-  { label: "Let's Grow Series", href: "/youreadyletsgrowdigital" }
+  { label: "Contact", href: "/contact" }
 ] as const;
 
 const LogoSrc = "/images/logo/logo.png";
