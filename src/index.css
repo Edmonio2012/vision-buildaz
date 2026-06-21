@@ -61,3 +61,88 @@
     @apply bg-accent text-night;
   }
 }
+
+@media (max-width: 1023px) {
+  .coaching-copy-section {
+    height: auto !important;
+    padding: 2.5rem 1.5rem !important;
+  }
+
+  .coaching-copy,
+  .book-series-intro,
+  .book-feature-copy,
+  .workbook-feature-copy {
+    letter-spacing: 0 !important;
+    margin-left: 0 !important;
+    max-width: none !important;
+    width: auto !important;
+  }
+
+  .coaching-copy {
+    font-size: clamp(1.125rem, 5vw, 1.5rem) !important;
+    line-height: 1.45 !important;
+  }
+
+  .coaching-copy br,
+  .book-feature-copy br,
+  .workbook-feature-copy br {
+    display: none;
+  }
+
+  .coaching-copy-paragraphs {
+    gap: 1.5rem !important;
+  }
+
+  .coaching-cta,
+  .book-order-cta,
+  .workbook-order-cta {
+    margin-left: 0 !important;
+    margin-top: 2rem !important;
+    max-width: 100% !important;
+  }
+
+  .book-series-banner {
+    height: auto !important;
+    min-height: 10.5rem;
+    padding: 1.5rem !important;
+  }
+
+  .book-series-banner-content {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    justify-content: center !important;
+  }
+
+  .book-series-banner-content h2 {
+    font-size: clamp(1.75rem, 8vw, 2.4rem) !important;
+  }
+
+  .book-series-intro {
+    font-size: clamp(1.125rem, 5vw, 1.5rem) !important;
+    line-height: 1.45 !important;
+  }
+
+  .book-feature-grid,
+  .workbook-feature-grid {
+    column-gap: 0 !important;
+    gap: 2rem !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    margin-top: 3rem !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .book-feature-copy,
+  .workbook-feature-copy {
+    font-size: clamp(1.125rem, 5vw, 1.5rem) !important;
+    line-height: 1.45 !important;
+    padding-top: 0 !important;
+  }
+
+  .book-cover {
+    height: auto !important;
+    margin-inline: auto;
+    max-width: 404px !important;
+    width: 100% !important;
+  }
+}

@@ -18,7 +18,7 @@ export function WixServicesSection(): JSX.Element {
         <div className="mx-auto flex w-full max-w-[900px] flex-col items-center justify-center gap-8 sm:flex-row sm:gap-7 lg:gap-[28px]">
           {services.map((service) => (
             <motion.div
-              className="flex aspect-square w-[214px] shrink-0 items-center justify-center rounded-full border-[3px] border-[#132664] bg-transparent text-center sm:w-[230px] md:w-[250px] lg:w-[272px]"
+              className="flex aspect-square w-[214px] shrink-0 select-none items-center justify-center rounded-full border-[3px] border-[#132664] bg-transparent text-center sm:w-[230px] md:w-[250px] lg:w-[272px]"
               key={service}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}

@@ -54,7 +54,7 @@ export function WixFounderSection(): JSX.Element {
 
             <Link
               className="mt-[14px] inline-flex h-[56px] min-w-[236px] items-center justify-center rounded-[7px] bg-[#ffd154] px-6 [font-family:Georgia,serif] text-[14px] italic leading-none text-[#47370a] shadow-[0_8px_18px_rgba(0,0,0,0.1)] transition hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-[#1f295b] focus:ring-offset-2 lg:ml-5"
-              to="/wdbrown"
+              to="/book-online"
             >
               ABOUT WD BROWN &gt;&gt;
             </Link>

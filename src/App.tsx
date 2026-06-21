@@ -6,10 +6,13 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import { AnnouncementBanner } from "@/components/ui/AnnouncementBanner";
 import { Admin } from "@/pages/Admin";
 import { About } from "@/pages/About";
+import { BookOnline } from "@/pages/BookOnline";
+import { BookingCalendar } from "@/pages/BookingCalendar";
 import { Contact } from "@/pages/Contact";
 import { Home } from "@/pages/Home";
 import { Mindset } from "@/pages/Mindset";
 import { NewHome } from "@/pages/NewHome";
+import { NotFound } from "@/pages/NotFound";
 import { ProjectsPage } from "@/pages/ProjectsPage";
 import { WDBrown } from "@/pages/WDBrown";
 import { YouReadyLetsGrowDigital } from "@/pages/YouReadyLetsGrowDigital";
@@ -38,6 +41,9 @@ export default function App(): JSX.Element {
         <Route element={<NewHome />} path="/" />
         <Route element={<Home />} path="/recenthome" />
         <Route element={<About />} path="/about" />
+        <Route element={<BookOnline />} path="/book-online" />
+        <Route element={<BookingCalendar />} path="/booking-calendar" />
+        <Route element={<BookingCalendar />} path="/booking-calendar/:serviceSlug" />
         <Route element={<ProjectsPage />} path="/projects" />
         <Route element={<Contact />} path="/contact" />
         <Route element={<WDBrown />} path="/wdbrown" />
@@ -45,6 +51,7 @@ export default function App(): JSX.Element {
         <Route element={<YouReadyLetsGrowDigitalCourse />} path="/youreadyletsgrowdigital/:courseId" />
         <Route element={<Mindset />} path="/mindset" />
         <Route element={<Admin />} path="/admin" />
+        <Route element={<NotFound />} path="*" />
       </Routes>
     </motion.div>
   );

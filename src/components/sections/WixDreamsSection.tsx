@@ -21,15 +21,15 @@ export function WixDreamsSection(): JSX.Element {
       </div>
 
       <div
-        className="px-6 py-10 sm:px-8 sm:py-12 lg:h-[431px] lg:px-0 lg:py-[39px]"
+        className="coaching-copy-section px-6 py-10 sm:px-8 sm:py-12 lg:h-[431px] lg:px-0 lg:py-[39px]"
         style={{ height: "431px", paddingBottom: 0, paddingTop: "32px" }}
       >
         <div className="mx-auto w-full max-w-[966px]">
           <div
-            className="max-w-[800px] [font-family:Arial,sans-serif] text-[21px] font-normal leading-[1.15] text-[#263652] sm:text-[24px] lg:ml-[44px] lg:text-[27px]"
+            className="coaching-copy max-w-[800px] [font-family:Arial,sans-serif] text-[21px] font-normal leading-[1.15] text-[#263652] sm:text-[24px] lg:ml-[44px] lg:text-[27px]"
             style={{ fontSize: "25px", letterSpacing: "-0.3px", lineHeight: "31px", marginLeft: "44px" }}
           >
-            <div className="flex flex-col" style={{ gap: "30px" }}>
+            <div className="coaching-copy-paragraphs flex flex-col" style={{ gap: "30px" }}>
               <p>
                 Vision Buildaz provides coaching and consulting support for
                 <br />
@@ -52,7 +52,7 @@ export function WixDreamsSection(): JSX.Element {
             </div>
 
             <Link
-              className="mt-[33px] inline-flex h-[56px] min-w-[236px] items-center justify-center rounded-[7px] bg-[#ffd154] px-6 [font-family:Georgia,serif] text-[14px] italic leading-none text-[#47370a] shadow-[0_8px_18px_rgba(0,0,0,0.1)] transition hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-[#1f295b] focus:ring-offset-2 lg:ml-[31px]"
+              className="coaching-cta mt-[33px] inline-flex h-[56px] min-w-[236px] items-center justify-center rounded-[7px] bg-[#ffd154] px-6 [font-family:Georgia,serif] text-[14px] italic leading-none text-[#47370a] shadow-[0_8px_18px_rgba(0,0,0,0.1)] transition hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-[#1f295b] focus:ring-offset-2 lg:ml-[31px]"
               to="/contact"
               style={{ marginLeft: "31px", marginTop: "42px" }}
             >
@@ -63,7 +63,7 @@ export function WixDreamsSection(): JSX.Element {
       </div>
 
       <div
-        className="flex h-[124px] items-center bg-cover bg-center bg-no-repeat px-6 sm:h-[132px] sm:px-8 lg:h-[134px] lg:px-0"
+        className="book-series-banner flex h-[124px] items-center bg-cover bg-center bg-no-repeat px-6 sm:h-[132px] sm:px-8 lg:h-[134px] lg:px-0"
         style={{
           backgroundImage: "url('/images/assets/subheader-bg.jpg')",
           backgroundPosition: "center",
@@ -72,7 +72,7 @@ export function WixDreamsSection(): JSX.Element {
         }}
       >
         <div
-          className="mx-auto flex w-full max-w-[804px] flex-col items-center justify-center gap-4 sm:flex-row sm:justify-between sm:gap-8"
+          className="book-series-banner-content mx-auto flex w-full max-w-[804px] flex-col items-center justify-center gap-4 sm:flex-row sm:justify-between sm:gap-8"
           style={{
             alignItems: "center",
             display: "flex",
@@ -110,7 +110,7 @@ export function WixDreamsSection(): JSX.Element {
       >
         <div className="mx-auto w-full max-w-[966px]">
           <div
-            className="max-w-[800px] [font-family:Arial,sans-serif] text-[21px] font-normal leading-[1.35] text-[#263652] sm:text-[24px] lg:ml-[44px] lg:text-[27px]"
+            className="book-series-intro max-w-[800px] [font-family:Arial,sans-serif] text-[21px] font-normal leading-[1.35] text-[#263652] sm:text-[24px] lg:ml-[44px] lg:text-[27px]"
             style={{ marginLeft: "44px" }}
           >
             <p>
@@ -127,7 +127,7 @@ export function WixDreamsSection(): JSX.Element {
         </div>
 
         <div
-          className="mx-auto mt-16 grid w-full grid-cols-1 items-start gap-10 lg:mt-[77px]"
+          className="book-feature-grid mx-auto mt-16 grid w-full grid-cols-1 items-start gap-10 lg:mt-[77px]"
           style={{
             columnGap: "30px",
             gridTemplateColumns: "450px 404px",
@@ -137,7 +137,7 @@ export function WixDreamsSection(): JSX.Element {
           }}
         >
           <div
-            className="[font-family:Arial,sans-serif] text-[22px] font-normal leading-[1.35] text-[#263652] sm:text-[25px] lg:text-[27px]"
+            className="book-feature-copy [font-family:Arial,sans-serif] text-[22px] font-normal leading-[1.35] text-[#263652] sm:text-[25px] lg:text-[27px]"
             style={{
               fontSize: "25px",
               letterSpacing: "-0.3px",
@@ -174,8 +174,10 @@ export function WixDreamsSection(): JSX.Element {
               </p>
             </div>
 
-            <Link
-              className="mt-16 inline-flex h-[59px] w-[291px] items-center justify-center bg-black [clip-path:polygon(0_0,96%_0,100%_18%,100%_100%,4%_100%,0_82%)] [font-family:Arial,sans-serif] text-[20px] font-normal leading-none text-white transition hover:bg-[#171717] focus:outline-none focus:ring-2 focus:ring-[#1f295b] focus:ring-offset-2 lg:ml-[70px]"
+            <a
+              className="book-order-cta mt-16 inline-flex h-[59px] w-[291px] items-center justify-center bg-black [clip-path:polygon(0_0,96%_0,100%_18%,100%_100%,4%_100%,0_82%)] [font-family:Arial,sans-serif] text-[20px] font-normal leading-none text-white transition hover:bg-[#171717] focus:outline-none focus:ring-2 focus:ring-[#1f295b] focus:ring-offset-2 lg:ml-[70px]"
+              href="https://www.amazon.com/Mindset-Before-Millions-READY-LETS/dp/B0GQZ2R814/ref=tmm_pap_swatch_0?_encoding=UTF8&sr=8-1"
+              rel="noreferrer"
               style={{
                 backgroundColor: "#000",
                 clipPath: "polygon(0 0, 96% 0, 100% 18%, 100% 100%, 4% 100%, 0 82%)",
@@ -185,15 +187,15 @@ export function WixDreamsSection(): JSX.Element {
                 marginTop: "90px",
                 width: "291px"
               }}
-              to="/mindset"
+              target="_blank"
             >
               ORDER NOW &gt;&gt;
-            </Link>
+            </a>
           </div>
 
           <img
             alt="Mindset Before Millions book cover"
-            className="h-auto w-full border-[5px] border-black object-cover"
+            className="book-cover h-auto w-full border-[5px] border-black object-cover"
             loading="lazy"
             src="/images/assets/mindset-before-millions-book.png"
             style={{ width: "404px" }}
@@ -207,9 +209,9 @@ export function WixDreamsSection(): JSX.Element {
         style={{ backgroundImage: "url('/images/assets/subheader-bg.jpg')", height: "70px" }}
       />
 
-      <div className="bg-white px-6 py-9 sm:px-8 sm:py-10 lg:px-0">
+      <div className="workbook-feature-section bg-white px-6 py-9 sm:px-8 sm:py-10 lg:px-0">
         <div
-          className="mx-auto grid w-full grid-cols-1 items-start gap-10 lg:mt-[35px]"
+          className="workbook-feature-grid mx-auto grid w-full grid-cols-1 items-start gap-10 lg:mt-[35px]"
           style={{
             columnGap: "47px",
             gridTemplateColumns: "404px 450px",
@@ -220,14 +222,14 @@ export function WixDreamsSection(): JSX.Element {
         >
           <img
             alt="Mindset Before Millions workbook cover"
-            className="h-auto w-full border-[5px] border-black object-cover"
+            className="book-cover h-auto w-full border-[5px] border-black object-cover"
             loading="lazy"
             src="/images/assets/mindset-before-millions-workbook.png"
             style={{ width: "404px" }}
           />
 
           <div
-            className="[font-family:Arial,sans-serif] text-[22px] font-normal leading-[1.35] text-[#263652] sm:text-[25px] lg:text-[27px]"
+            className="workbook-feature-copy [font-family:Arial,sans-serif] text-[22px] font-normal leading-[1.35] text-[#263652] sm:text-[25px] lg:text-[27px]"
             style={{
               fontSize: "25px",
               letterSpacing: "-0.3px",
@@ -263,7 +265,7 @@ export function WixDreamsSection(): JSX.Element {
             </p>
 
             <Link
-              className="mt-16 inline-flex h-[59px] w-[291px] items-center justify-center bg-black [clip-path:polygon(0_0,96%_0,100%_18%,100%_100%,4%_100%,0_82%)] [font-family:Arial,sans-serif] text-[20px] font-normal leading-none text-white transition hover:bg-[#171717] focus:outline-none focus:ring-2 focus:ring-[#1f295b] focus:ring-offset-2"
+              className="workbook-order-cta mt-16 inline-flex h-[59px] w-[291px] items-center justify-center bg-black [clip-path:polygon(0_0,96%_0,100%_18%,100%_100%,4%_100%,0_82%)] [font-family:Arial,sans-serif] text-[20px] font-normal leading-none text-white transition hover:bg-[#171717] focus:outline-none focus:ring-2 focus:ring-[#1f295b] focus:ring-offset-2"
               style={{
                 backgroundColor: "#000",
                 clipPath: "polygon(0 0, 96% 0, 100% 18%, 100% 100%, 4% 100%, 0 82%)",
@@ -273,7 +275,7 @@ export function WixDreamsSection(): JSX.Element {
                 marginTop: "60px",
                 width: "291px"
               }}
-              to="/mindset"
+              to="/book-online"
             >
               ORDER NOW &gt;&gt;
             </Link>

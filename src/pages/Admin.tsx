@@ -43,6 +43,18 @@ import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
 import LinkExtension from "@tiptap/extension-link";
+import {
+  Area,
+  AreaChart,
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Legend,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis
+} from "recharts";
 
 import type { ContentItem, Course } from "@/data/courses";
 import {
@@ -221,6 +233,49 @@ export function Admin(): JSX.Element {
   const progressStats = useMemo(() => readProgressStats(coursesData), [coursesData]);
   const unreadCount = contacts.filter((submission) => !submission.read).length;
   const totalItems = coursesData.courses.reduce((sum, course) => sum + course.items.length, 0);
+  const bookingCount = useMemo(
+    () => contacts.filter((submission) => submission.subject?.startsWith("Booking request")).length,
+    [contacts]
+  );
+  const analyticsTrend = useMemo(() => {
+    const today = new Date();
+    const days = Array.from({ length: 7 }, (_, index) => {
+      const date = new Date(today.getFullYear(), today.getMonth(), today.getDate() - (6 - index));
+      return {
+        key: date.toISOString().slice(0, 10),
+        label: date.toLocaleDateString("en-US", { weekday: "short" }),
+        leads: 0,
+        bookings: 0
+      };
+    });
+
+    const trendByDay = new Map(days.map((day) => [day.key, day]));
+    contacts.forEach((submission) => {
+      const submittedAt = new Date(submission.submittedAt);
+      if (Number.isNaN(submittedAt.getTime())) return;
+      const item = trendByDay.get(submittedAt.toISOString().slice(0, 10));
+      if (!item) return;
+      item.leads += 1;
+      if (submission.subject?.startsWith("Booking request")) item.bookings += 1;
+    });
+
+    return days;
+  }, [contacts]);
+  const courseAnalytics = useMemo(() => {
+    let progress: Record<string, boolean> = {};
+    try {
+      progress = JSON.parse(localStorage.getItem(STORAGE_KEYS.progress) ?? "{}") as Record<string, boolean>;
+    } catch {
+      progress = {};
+    }
+
+    return coursesData.courses.map((course) => ({
+      name: course.title.length > 17 ? `${course.title.slice(0, 17)}…` : course.title,
+      lessons: course.items.length,
+      completed: course.items.filter((item) => progress[item.id]).length
+    }));
+  }, [coursesData]);
+  const completionRate = totalItems ? Math.round((progressStats.completed / totalItems) * 100) : 0;
   const allTags = useMemo(
     () => Array.from(new Set(coursesData.courses.flatMap((course) => course.tags ?? []))),
     [coursesData.courses]
@@ -937,7 +992,7 @@ export function Admin(): JSX.Element {
         </aside>
 
         <section className="flex min-w-0 flex-col">
-          <header className="sticky top-0 z-40 flex min-h-16 items-center justify-between border-b border-white/10 bg-[#0b1026]/95 px-4 backdrop-blur sm:px-6">
+          <header className="sticky top-0 z-40 flex min-h-[96px] items-center justify-between border-b border-white/10 bg-[#0b1026]/95 px-4 py-4 backdrop-blur sm:px-6">
             <button
               aria-label="Open admin menu"
               className="flex h-10 w-10 items-center justify-center border border-white/15 lg:hidden"
@@ -998,6 +1053,98 @@ export function Admin(): JSX.Element {
                     Student progress: {progressStats.completed}/{progressStats.total} content items completed in this browser.
                   </p>
                 </div>
+              </section>
+            ) : null}
+
+            {activeSection === "analytics" ? (
+              <section className="flex flex-col gap-6">
+                <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                  {[
+                    { label: "Total Leads", value: contacts.length, detail: `${unreadCount} unread` },
+                    { label: "Booking Requests", value: bookingCount, detail: "Submitted through the scheduler" },
+                    { label: "Content Completion", value: `${completionRate}%`, detail: `${progressStats.completed}/${totalItems} lessons` },
+                    { label: "Published Courses", value: coursesData.courses.filter((course) => course.status !== "hidden").length, detail: `${coursesData.courses.length} total courses` }
+                  ].map((stat) => (
+                    <div className="border border-[#d8b168]/45 bg-[#151d3a] p-5" key={stat.label}>
+                      <p className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#d8b168]">{stat.label}</p>
+                      <p className="mt-2 text-[34px] font-bold leading-none text-white">{stat.value}</p>
+                      <p className="mt-3 text-[13px] text-[#f8f1dc]/70">{stat.detail}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="grid gap-6 xl:grid-cols-[1.15fr_0.85fr]">
+                  <Panel title="Lead & Booking Activity">
+                    <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+                      <p className="text-[14px] text-[#f8f1dc]/70">Last 7 days</p>
+                      <div className="flex gap-4 text-[12px] font-semibold uppercase tracking-[0.1em]">
+                        <span className="text-[#e3b84e]">Leads</span>
+                        <span className="text-[#64c6f3]">Bookings</span>
+                      </div>
+                    </div>
+                    <div className="h-[290px] w-full">
+                      <ResponsiveContainer height="100%" width="100%">
+                        <AreaChart data={analyticsTrend} margin={{ top: 10, right: 8, left: -20, bottom: 0 }}>
+                          <defs>
+                            <linearGradient id="leadsFill" x1="0" x2="0" y1="0" y2="1">
+                              <stop offset="0%" stopColor="#e3b84e" stopOpacity={0.38} />
+                              <stop offset="100%" stopColor="#e3b84e" stopOpacity={0} />
+                            </linearGradient>
+                            <linearGradient id="bookingsFill" x1="0" x2="0" y1="0" y2="1">
+                              <stop offset="0%" stopColor="#64c6f3" stopOpacity={0.3} />
+                              <stop offset="100%" stopColor="#64c6f3" stopOpacity={0} />
+                            </linearGradient>
+                          </defs>
+                          <CartesianGrid stroke="#ffffff1f" strokeDasharray="3 3" vertical={false} />
+                          <XAxis axisLine={false} dataKey="label" tick={{ fill: "#d8d3c1", fontSize: 12 }} tickLine={false} />
+                          <YAxis allowDecimals={false} axisLine={false} tick={{ fill: "#d8d3c1", fontSize: 12 }} tickLine={false} />
+                          <Tooltip
+                            contentStyle={{ background: "#111832", border: "1px solid rgba(216,177,104,.45)", borderRadius: 0 }}
+                            labelStyle={{ color: "#f8f1dc" }}
+                          />
+                          <Area dataKey="leads" fill="url(#leadsFill)" name="Leads" stroke="#e3b84e" strokeWidth={2.5} type="monotone" />
+                          <Area dataKey="bookings" fill="url(#bookingsFill)" name="Bookings" stroke="#64c6f3" strokeWidth={2.5} type="monotone" />
+                        </AreaChart>
+                      </ResponsiveContainer>
+                    </div>
+                  </Panel>
+
+                  <Panel title="Course Performance">
+                    <p className="mb-5 text-[14px] text-[#f8f1dc]/70">Lessons available and completed in this browser</p>
+                    <div className="h-[290px] w-full">
+                      <ResponsiveContainer height="100%" width="100%">
+                        <BarChart data={courseAnalytics} margin={{ top: 10, right: 4, left: -20, bottom: 0 }}>
+                          <CartesianGrid stroke="#ffffff1f" strokeDasharray="3 3" vertical={false} />
+                          <XAxis axisLine={false} dataKey="name" interval={0} tick={{ fill: "#d8d3c1", fontSize: 11 }} tickLine={false} />
+                          <YAxis allowDecimals={false} axisLine={false} tick={{ fill: "#d8d3c1", fontSize: 12 }} tickLine={false} />
+                          <Tooltip
+                            contentStyle={{ background: "#111832", border: "1px solid rgba(216,177,104,.45)", borderRadius: 0 }}
+                            labelStyle={{ color: "#f8f1dc" }}
+                          />
+                          <Legend wrapperStyle={{ color: "#f8f1dc", fontSize: 12 }} />
+                          <Bar dataKey="lessons" fill="#a4890b" name="Lessons" radius={[2, 2, 0, 0]} />
+                          <Bar dataKey="completed" fill="#64c6f3" name="Completed" radius={[2, 2, 0, 0]} />
+                        </BarChart>
+                      </ResponsiveContainer>
+                    </div>
+                  </Panel>
+                </div>
+
+                <Panel title="Recent Requests">
+                  {contacts.length ? (
+                    <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+                      {contacts.slice(0, 4).map((submission) => (
+                        <div className="border border-white/10 bg-white/5 p-4" key={submission.id}>
+                          <p className="truncate font-semibold text-[#f8f1dc]">{submission.name || "Website visitor"}</p>
+                          <p className="mt-1 truncate text-[13px] text-[#d8b168]">{submission.subject || "Contact request"}</p>
+                          <p className="mt-3 text-[12px] text-[#f8f1dc]/65">{new Date(submission.submittedAt).toLocaleString()}</p>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <EmptyState message="No analytics data yet. Contact forms and booking requests will appear here as they arrive." />
+                  )}
+                </Panel>
               </section>
             ) : null}
 
