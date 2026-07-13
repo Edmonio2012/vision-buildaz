@@ -99,6 +99,13 @@ export function AnnouncementBanner(): JSX.Element | null {
                   </p>
                 </div>
 
+                <input
+                  aria-label="Email address"
+                  className="h-[50px] w-full rounded-[2px] border border-[#9f9f9f] px-4 [font-family:'Poppins',sans-serif] text-[16px] text-black outline-none placeholder:text-[#6f7478] focus:border-[#65727c]"
+                  placeholder="Enter your email address"
+                  type="email"
+                />
+
                 <PhoneNumberField
                   codeClassName="h-[50px] rounded-l-[2px] border-[#9f9f9f] text-[13px]"
                   errorClassName="text-[11px]"
@@ -134,13 +141,6 @@ export function AnnouncementBanner(): JSX.Element | null {
                     </a>
                     .
                   </p>
-
-                  <input
-                    aria-label="Email address"
-                    className="h-[50px] w-full rounded-[2px] border border-[#9f9f9f] px-4 [font-family:'Poppins',sans-serif] text-[16px] text-black outline-none placeholder:text-[#6f7478] focus:border-[#65727c]"
-                    placeholder="Enter your email address"
-                    type="email"
-                  />
 
                   <a
                     className="flex h-[54px] w-full items-center justify-center rounded-[2px] bg-[#2f3d48] [font-family:'Poppins',sans-serif] text-[16px] font-semibold text-white transition hover:bg-[#26323b]"
