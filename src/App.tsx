@@ -29,13 +29,16 @@ function ScrollToTopOnRouteChange(): null {
 }
 
 export default function App(): JSX.Element {
+  const { pathname } = useLocation();
+  const showAnnouncement = pathname !== "/wdbrown";
+
   return (
     <motion.div
       animate={{ opacity: 1, y: 0 }}
       initial={{ opacity: 0, y: 18 }}
       transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
     >
-      <AnnouncementBanner />
+      {showAnnouncement ? <AnnouncementBanner /> : null}
       <ScrollToTopOnRouteChange />
       <Routes>
         <Route element={<NewHome />} path="/" />
@@ -48,7 +51,10 @@ export default function App(): JSX.Element {
         <Route element={<Contact />} path="/contact" />
         <Route element={<WDBrown />} path="/wdbrown" />
         <Route element={<YouReadyLetsGrowDigital />} path="/youreadyletsgrowdigital" />
-        <Route element={<YouReadyLetsGrowDigitalCourse />} path="/youreadyletsgrowdigital/:courseId" />
+        <Route
+          element={<YouReadyLetsGrowDigitalCourse />}
+          path="/youreadyletsgrowdigital/:courseId"
+        />
         <Route element={<Mindset />} path="/mindset" />
         <Route element={<Admin />} path="/admin" />
         <Route element={<NotFound />} path="*" />
