@@ -14,7 +14,7 @@ const founderParagraphs = [
   `His book series, You Ready? Let's Grow, begins with Mindset Before Millions, a powerful introduction to the belief that true prosperity starts within. It challenges the idea that wealth is only measured by money, instead defining success through balance, legacy, and wholeness. Rather than chasing financial gain at the expense of health, relationships, and purpose, this message emphasizes building a life that can sustain and truly enjoy the wealth it creates.`,
   "What sets WD apart is not just what he teaches, but how he connects. He is deeply relationship-oriented, with a unique ability to listen intently, discern what's really being said beneath the surface, and respond in a way that brings clarity in real time. People often say he has a way of speaking directly to the heart, even in a room full of strangers.",
   `As one audience member put it: "He knows how to find the heart of a person and answer in a way that makes you see."`,
-  `That's exactly how WD teaches.`,
+  "That's exactly how WD teaches.",
   `He often says: "We're going to get you to the millions, but first, let's get your mind right. Let's make sure your heart is right. Let's make sure you're mentally and emotionally whole because if that's not in place, the millions won't matter."`,
   "Through weekly live sessions, real conversations, and consistent teaching, WD challenges people to stop chasing everything and start focusing on what actually matters.",
   `He often reminds his community: "I'm not an expert. I'm a practitioner. I'm growing with you."`,
