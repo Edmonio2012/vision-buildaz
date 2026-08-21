@@ -23,19 +23,6 @@ export function AboutSection2(): JSX.Element {
             build something that lasts. We don&apos;t coach from a pedestal, we build beside you.
           </p>
 
-          <div className="flex flex-col gap-3">
-            <p className="font-semibold text-black">Services</p>
-            <p>
-              At Vision Buildaz, we offer real-life strategies and community-based support through:
-            </p>
-            <ul className="list-disc pl-8">
-              <li>1:1 and group coaching</li>
-              <li>Motivational speaking and interactive workshops</li>
-              <li>Books and digital resources</li>
-              <li>Community-building events and strategic partnerships</li>
-            </ul>
-          </div>
-
           <p>
             From launching a dream to changing careers, buying a home to setting up a legacy, we
             walk with you through the real stuff. With structure, support, and a no-fluff approach,

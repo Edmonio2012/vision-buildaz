@@ -30,11 +30,11 @@ export function ContactSection(): JSX.Element {
     event.preventDefault();
 
     const validationErrors: ContactFormErrors = {};
-    if (!form.email.trim()) validationErrors.email = "Խնդրում ենք լրացնել էլ. հասցեն։";
+    if (!form.email.trim()) validationErrors.email = "Please enter your email.";
     else if (!EMAIL_REGEX.test(form.email))
-      validationErrors.email = "Խնդրում ենք մուտքագրել վավեր էլ. հասցե։";
-    if (!form.subject.trim()) validationErrors.subject = "Խնդրում ենք լրացնել թեման։";
-    if (!form.message.trim()) validationErrors.message = "Խնդրում ենք լրացնել հաղորդագրությունը։";
+      validationErrors.email = "Please enter a valid email.";
+    if (!form.subject.trim()) validationErrors.subject = "Please enter a subject.";
+    if (!form.message.trim()) validationErrors.message = "Please enter a message.";
 
     setErrors(validationErrors);
 
@@ -76,18 +76,16 @@ export function ContactSection(): JSX.Element {
         transition={{ duration: 0.55, delay: 0.08 }}
       >
         <h2 className="[font-family:'Trirong',serif] text-[28px] font-bold leading-none text-white sm:text-[35px] md:text-[40px]">
-          LET&apos;S STAY IN TOUCH
+          Send a Message
         </h2>
 
         <p className="max-w-[680px] [font-family:'Poppins',sans-serif] text-[16px] font-normal leading-[1.6] text-white sm:text-[18px] md:text-[19px]">
-          Are you ready to take the next step toward achieving your goals? Contact Vision Buildaz
-          today to schedule a consultation. Whether you&apos;re interested in one-on-one coaching,
-          workshops, or financial mentorship, we&apos;re here to help. You ready? Let&apos;s grow!
+          Email · Subject · Message
         </p>
 
         <form className="flex w-full max-w-[560px] flex-col items-center gap-6" noValidate onSubmit={handleSubmit}>
           <p className="[font-family:'Poppins',sans-serif] text-[18px] font-normal leading-[1.2] text-white sm:text-[20px] md:text-[22px]">
-            Please Complete Form Details
+            Please complete form details
           </p>
 
           <div className="flex w-full flex-col gap-4">
@@ -163,7 +161,7 @@ export function ContactSection(): JSX.Element {
               <span className="pointer-events-none absolute inset-[1px] rounded-[10px] bg-gradient-to-b from-[#1f232a] via-[#0b0e12] to-[#040506]" />
               <span className="pointer-events-none absolute -left-1/2 top-0 h-full w-[40%] animate-cta-sheen bg-gradient-to-r from-transparent via-[#ffedbf]/35 to-transparent" />
               <span className="pointer-events-none absolute inset-0 rounded-[12px] shadow-[inset_0_1px_0_rgba(255,233,188,0.34),inset_0_-1px_0_rgba(0,0,0,0.5)]" />
-              <span className="relative z-10">SUBMIT</span>
+              <span className="relative z-10">Send Message</span>
               <ArrowRight
                 aria-hidden="true"
                 className="relative z-10 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 sm:h-6 sm:w-6"
@@ -172,7 +170,7 @@ export function ContactSection(): JSX.Element {
 
             {submitted ? (
               <p className="[font-family:'Poppins',sans-serif] text-[17px] text-[#f3dd78]">
-                Form submitted successfully.
+                Thanks for reaching out! We&apos;ll be in touch soon.
               </p>
             ) : null}
           </div>
