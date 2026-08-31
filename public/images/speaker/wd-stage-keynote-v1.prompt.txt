@@ -1,0 +1,15 @@
+Tool: OpenAI built-in ImageGen
+Mode: photorealistic-natural
+
+Use case: photorealistic-natural
+Asset type: secondary website stage photograph for a professional speaker site
+Primary request: Create a photorealistic editorial event photograph of the same real person shown in reference images 1–3, WD Brown, delivering a keynote to a large, diverse, full conference audience. Reference image 4 is art direction only for the premium arena atmosphere, scale, blue stage lighting, and cinematic energy; do not copy its face or exact pose.
+Input images: Image 1, Image 2, and Image 3 are identity references for WD Brown; Image 4 is composition and mood reference only.
+Scene/backdrop: modern packed conference hall with a wide stage, subtle blue-white stage beams, audience visible but secondary.
+Subject: WD Brown on stage in a tailored deep navy suit and open-collar white shirt, wearing his accurate rectangular brown glasses, close-cropped dark hair, and neatly shaped salt-and-pepper goatee. He is speaking naturally and confidently with an open hand gesture.
+Style/medium: high-end documentary event photography, natural skin texture, realistic anatomy, credible camera optics, no beauty retouching.
+Composition/framing: landscape editorial frame around 5:4; WD placed on the right third from mid-thigh up so the left half provides quiet negative space for adjacent copy; audience and lighting establish scale without clutter.
+Lighting/mood: cinematic but plausible arena lighting, poised, warm, authoritative, human.
+Color palette: deep navy, warm skin tones, restrained champagne-gold highlights.
+Constraints: preserve WD Brown's recognizable facial identity, age, glasses, hairline, and goatee from images 1–3. His left hand must be anatomically correct and visibly wear one simple gold wedding band on the left ring finger. Exactly one ring, no other jewelry besides the subtle necklace seen in the references if visible. Five fingers per hand. No microphones covering his face.
+Avoid: incorrect identity, younger appearance, generic stock-model face, distorted hands, extra fingers, missing wedding ring, ring on wrong hand, multiple rings, text, logos, watermark, podium, exaggerated crowd blur, artificial CGI sheen.

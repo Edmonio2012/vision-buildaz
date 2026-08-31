@@ -1,0 +1,253 @@
+{
+  "targetUrl": "https://youready-letsgrow.vercel.app/",
+  "desktop": {
+    "requestedViewport": "1440x1000",
+    "screenshotSize": {
+      "x": 0,
+      "y": 0,
+      "width": 1425,
+      "height": 9478
+    },
+    "scroll": {
+      "visited": [
+        {
+          "y": 0,
+          "height": 9478
+        },
+        {
+          "y": 720,
+          "height": 9478
+        },
+        {
+          "y": 1440,
+          "height": 9478
+        },
+        {
+          "y": 2160,
+          "height": 9478
+        },
+        {
+          "y": 2880,
+          "height": 9478
+        },
+        {
+          "y": 3600,
+          "height": 9478
+        },
+        {
+          "y": 4320,
+          "height": 9478
+        },
+        {
+          "y": 5040,
+          "height": 9478
+        },
+        {
+          "y": 5760,
+          "height": 9478
+        },
+        {
+          "y": 6480,
+          "height": 9478
+        },
+        {
+          "y": 7200,
+          "height": 9478
+        },
+        {
+          "y": 7920,
+          "height": 9478
+        },
+        {
+          "y": 8640,
+          "height": 9478
+        },
+        {
+          "y": 9360,
+          "height": 9478
+        }
+      ],
+      "scrollHeight": 9478,
+      "scrollWidth": 1425
+    },
+    "dom": {
+      "innerWidth": 1440,
+      "innerHeight": 1000,
+      "devicePixelRatio": 1,
+      "scrollWidth": 1425,
+      "scrollHeight": 9478
+    }
+  },
+  "mobile": {
+    "requestedViewport": "390x844",
+    "screenshotSize": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 12972
+    },
+    "scroll": {
+      "visited": [
+        {
+          "y": 0,
+          "height": 12972
+        },
+        {
+          "y": 608,
+          "height": 12972
+        },
+        {
+          "y": 1216,
+          "height": 12972
+        },
+        {
+          "y": 1824,
+          "height": 12972
+        },
+        {
+          "y": 2432,
+          "height": 12972
+        },
+        {
+          "y": 3040,
+          "height": 12972
+        },
+        {
+          "y": 3648,
+          "height": 12972
+        },
+        {
+          "y": 4256,
+          "height": 12972
+        },
+        {
+          "y": 4864,
+          "height": 12972
+        },
+        {
+          "y": 5472,
+          "height": 12972
+        },
+        {
+          "y": 6080,
+          "height": 12972
+        },
+        {
+          "y": 6688,
+          "height": 12972
+        },
+        {
+          "y": 7296,
+          "height": 12972
+        },
+        {
+          "y": 7904,
+          "height": 12972
+        },
+        {
+          "y": 8512,
+          "height": 12972
+        },
+        {
+          "y": 9120,
+          "height": 12972
+        },
+        {
+          "y": 9728,
+          "height": 12972
+        },
+        {
+          "y": 10336,
+          "height": 12972
+        },
+        {
+          "y": 10944,
+          "height": 12972
+        },
+        {
+          "y": 11552,
+          "height": 12972
+        },
+        {
+          "y": 12160,
+          "height": 12972
+        },
+        {
+          "y": 12768,
+          "height": 12972
+        }
+      ],
+      "scrollHeight": 12972,
+      "scrollWidth": 390
+    },
+    "dom": {
+      "innerWidth": 390,
+      "innerHeight": 844,
+      "devicePixelRatio": 1,
+      "scrollWidth": 390,
+      "scrollHeight": 12972
+    }
+  },
+  "interactions": {
+    "heroCarousel": {
+      "dots": 3,
+      "initialText": "Helping people reach their destination whole.",
+      "afterSecondDot": null
+    },
+    "booksCarousel": {
+      "dots": 4,
+      "initialTransform": "translateX(-664px)",
+      "afterNextTransform": "translateX(-1314px)"
+    },
+    "pendingTestimonial": {
+      "alert": "Testimonial Video coming soon! Stay tuned for full video clip."
+    },
+    "realTestimonial": {
+      "videoId": "y46I3ZRGgJw",
+      "iframeCreated": true,
+      "iframeSrc": "https://www.youtube-nocookie.com/embed/y46I3ZRGgJw?autoplay=1&rel=0"
+    },
+    "signup": {
+      "delayedMs": 15000,
+      "dialogSupported": true,
+      "endpoint": "/api/subscribe"
+    },
+    "reel": {
+      "configuredVideoId": "",
+      "existsAfterScript": false,
+      "heroButtonHidden": true
+    },
+    "copyBio": {
+      "clipboardAvailable": true,
+      "target": "#std-bio-text"
+    }
+  },
+  "mobileMenuState": {
+    "open": true,
+    "bodyClass": "nav-open",
+    "ariaExpanded": "true",
+    "links": [
+      {
+        "text": "Speaking",
+        "href": "#speaking"
+      },
+      {
+        "text": "Testimonials",
+        "href": "#testimonials"
+      },
+      {
+        "text": "Meet WD",
+        "href": "#meet-wd"
+      },
+      {
+        "text": "Books",
+        "href": "#books"
+      },
+      {
+        "text": "Contact",
+        "href": "#contact"
+      }
+    ]
+  },
+  "consoleMessages": []
+}

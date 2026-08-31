@@ -1,0 +1,214 @@
+{
+  "targetUrl": "http://127.0.0.1:4173/",
+  "desktop": {
+    "viewport": {
+      "width": 1440,
+      "height": 1000,
+      "deviceScaleFactor": 1
+    },
+    "screenshotSize": {
+      "x": 0,
+      "y": 0,
+      "width": 1425,
+      "height": 10535
+    },
+    "layout": {
+      "visited": [
+        0,
+        700,
+        1400,
+        2100,
+        2800,
+        3500,
+        4200,
+        4900,
+        5600,
+        6300,
+        7000,
+        7700,
+        8400,
+        9100,
+        9800,
+        10500
+      ],
+      "innerWidth": 1440,
+      "innerHeight": 1000,
+      "scrollWidth": 1425,
+      "scrollHeight": 10535
+    },
+    "sections": {
+      "top": {
+        "x": 0,
+        "y": 73,
+        "width": 1425,
+        "height": 820
+      },
+      "why-wd": {
+        "x": 0,
+        "y": 971.65625,
+        "width": 1425,
+        "height": 1703
+      },
+      "speaking": {
+        "x": 0,
+        "y": 2674.65625,
+        "width": 1425,
+        "height": 2602.671875
+      },
+      "testimonials": {
+        "x": 0,
+        "y": 5277.328125,
+        "width": 1425,
+        "height": 1337.1875
+      },
+      "meet-wd": {
+        "x": 0,
+        "y": 6614.515625,
+        "width": 1425,
+        "height": 1169.25
+      },
+      "books": {
+        "x": 0,
+        "y": 7783.765625,
+        "width": 1425,
+        "height": 1050.828125
+      },
+      "contact": {
+        "x": 0,
+        "y": 8834.59375,
+        "width": 1425,
+        "height": 1180.28125
+      }
+    },
+    "accessibility": {
+      "imagesMissingAlt": 0,
+      "unnamedButtons": 0,
+      "unnamedLinks": 0,
+      "mainCount": 1,
+      "h1Count": 1
+    }
+  },
+  "mobile": {
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "deviceScaleFactor": 1
+    },
+    "screenshotSize": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 14758
+    },
+    "layout": {
+      "visited": [
+        0,
+        591,
+        1182,
+        1773,
+        2364,
+        2955,
+        3546,
+        4137,
+        4728,
+        5319,
+        5910,
+        6501,
+        7092,
+        7683,
+        8274,
+        8865,
+        9456,
+        10047,
+        10638,
+        11229,
+        11820,
+        12411,
+        13002,
+        13593,
+        14184
+      ],
+      "innerWidth": 390,
+      "innerHeight": 844,
+      "scrollWidth": 390,
+      "scrollHeight": 14758
+    },
+    "menu": {
+      "open": true,
+      "expanded": "true",
+      "bodyLocked": true,
+      "navBounds": {
+        "left": 0,
+        "right": 390,
+        "width": 390
+      },
+      "links": [
+        "Speaking",
+        "Testimonials",
+        "Meet WD",
+        "Books",
+        "Contact",
+        "Speaker Sheet"
+      ]
+    },
+    "menuFocus": {
+      "activeText": "Speaking",
+      "activeTag": "A"
+    },
+    "menuAfterEscape": {
+      "menuInDom": false,
+      "expanded": "false",
+      "focusReturnedToButton": true,
+      "bodyLocked": false
+    }
+  },
+  "interactions": {
+    "heroCarousel": {
+      "before": "Helping people reach their destination whole.",
+      "afterWait": "Helping people reach their destination whole.",
+      "autoRotationStopped": true,
+      "afterSecondDot": "“Success should not cost you your health, relationships, identity, faith, or purpose.” — WD Brown",
+      "manualSelectionChanged": true
+    },
+    "marquee": {
+      "paused": true,
+      "pressed": "true"
+    },
+    "testimonialVideo": {
+      "count": 1,
+      "src": "https://www.youtube-nocookie.com/embed/y46I3ZRGgJw?autoplay=1&rel=0"
+    }
+  },
+  "consoleMessages": [
+    {
+      "source": "console",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "source": "console",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "source": "console",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+    },
+    {
+      "source": "console",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "source": "console",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "source": "console",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+    }
+  ]
+}

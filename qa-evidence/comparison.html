@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WD Brown speaker site — source and implementation comparison</title>
+    <style>
+      :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+      * { box-sizing: border-box; }
+      body { background: #071426; color: #f8f5ec; margin: 0; padding: 34px; }
+      main { margin: 0 auto; max-width: 1510px; }
+      h1 { font-size: 30px; margin: 0 0 8px; }
+      h2 { color: #f4d068; font-size: 21px; margin: 46px 0 14px; }
+      p { color: #cfd6df; margin: 0 0 22px; }
+      .pair { align-items: start; display: grid; gap: 24px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .label { color: #f4d068; font-size: 12px; font-weight: 700; letter-spacing: .14em; margin: 0 0 8px; text-transform: uppercase; }
+      .panel { background: #0b132b; border: 1px solid rgba(244, 208, 104, .3); padding: 10px; }
+      .panel > img { display: block; height: auto; width: 100%; }
+      .full { align-items: start; }
+      .crop { background: #fff; height: 555px; overflow: hidden; position: relative; width: 700px; }
+      .crop img { display: block; left: 0; position: absolute; top: var(--offset); width: 700px; }
+      .mobile-pair { grid-template-columns: repeat(2, 410px); }
+      .mobile-pair .panel { width: 410px; }
+      .mobile-shot { height: 844px; margin: 0 auto; overflow: hidden; width: 390px; }
+      .mobile-shot img { display: block; width: 390px; }
+      .note { border-left: 3px solid #d4af37; padding-left: 12px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>WD Brown speaker site — source / implementation visual QA</h1>
+      <p class="note">Same CSS viewports and 1× density. Source is always left; rebuilt implementation is right.</p>
+
+      <section id="qa-desktop-top">
+      <h2>Desktop above the fold — 1440 × 1000</h2>
+      <div class="pair">
+        <div><div class="label">Source</div><div class="panel"><img src="../design-reference/source-desktop-1440x1000.png" alt="Source desktop top" /></div></div>
+        <div><div class="label">Implementation</div><div class="panel"><img src="implementation-desktop-1440x1000-top.png" alt="Implementation desktop top" /></div></div>
+      </div>
+      </section>
+
+      <section id="qa-mobile-top">
+      <h2>Mobile above the fold — 390 × 844</h2>
+      <div class="pair mobile-pair">
+        <div><div class="label">Source</div><div class="panel"><div class="mobile-shot"><img src="../design-reference/source-mobile-390x844.png" alt="Source mobile top" /></div></div></div>
+        <div><div class="label">Implementation</div><div class="panel"><div class="mobile-shot"><img src="implementation-mobile-390x844-top.png" alt="Implementation mobile top" /></div></div></div>
+      </div>
+      </section>
+
+      <section id="qa-mobile-menu">
+      <h2>Mobile navigation open — 390 × 844</h2>
+      <div class="pair mobile-pair">
+        <div><div class="label">Source</div><div class="panel"><div class="mobile-shot"><img src="../reference-evidence/youready-letsgrow-2026-08-31/mobile-390x844-menu-open.png" alt="Source mobile menu" /></div></div></div>
+        <div><div class="label">Implementation</div><div class="panel"><div class="mobile-shot"><img src="implementation-mobile-390x844-menu-open.png" alt="Implementation mobile menu" /></div></div></div>
+      </div>
+      </section>
+
+      <section id="qa-full-page">
+      <h2>Full desktop composition — 1425 CSS px content width</h2>
+      <div class="pair full">
+        <div><div class="label">Source</div><div class="panel"><img src="../reference-evidence/youready-letsgrow-2026-08-31/desktop-1440x1000-full.png" alt="Source full desktop page" /></div></div>
+        <div><div class="label">Implementation</div><div class="panel"><img src="implementation-desktop-1440x1000-full.png" alt="Implementation full desktop page" /></div></div>
+      </div>
+      </section>
+
+      <section id="qa-why">
+      <h2>Focused: Why WD</h2>
+      <div class="pair">
+        <div><div class="label">Source</div><div class="panel"><div class="crop"><img style="--offset: -478px" src="../reference-evidence/youready-letsgrow-2026-08-31/desktop-1440x1000-full.png" alt="Source Why WD section" /></div></div></div>
+        <div><div class="label">Implementation</div><div class="panel"><div class="crop"><img style="--offset: -477px" src="implementation-desktop-1440x1000-full.png" alt="Implementation Why WD section" /></div></div></div>
+      </div>
+      </section>
+
+      <section id="qa-testimonials">
+      <h2>Focused: Testimonials</h2>
+      <div class="pair">
+        <div><div class="label">Source</div><div class="panel"><div class="crop"><img style="--offset: -2040px" src="../reference-evidence/youready-letsgrow-2026-08-31/desktop-1440x1000-full.png" alt="Source testimonials section" /></div></div></div>
+        <div><div class="label">Implementation</div><div class="panel"><div class="crop"><img style="--offset: -2592px" src="implementation-desktop-1440x1000-full.png" alt="Implementation testimonials section" /></div></div></div>
+      </div>
+      </section>
+
+      <section id="qa-meet">
+      <h2>Focused: Meet WD</h2>
+      <div class="pair">
+        <div><div class="label">Source</div><div class="panel"><div class="crop"><img style="--offset: -2864px" src="../reference-evidence/youready-letsgrow-2026-08-31/desktop-1440x1000-full.png" alt="Source Meet WD section" /></div></div></div>
+        <div><div class="label">Implementation</div><div class="panel"><div class="crop"><img style="--offset: -3249px" src="implementation-desktop-1440x1000-full.png" alt="Implementation Meet WD section" /></div></div></div>
+      </div>
+      </section>
+
+      <section id="qa-books">
+      <h2>Focused: Books</h2>
+      <div class="pair">
+        <div><div class="label">Source</div><div class="panel"><div class="crop"><img style="--offset: -3419px" src="../reference-evidence/youready-letsgrow-2026-08-31/desktop-1440x1000-full.png" alt="Source books section" /></div></div></div>
+        <div><div class="label">Implementation</div><div class="panel"><div class="crop"><img style="--offset: -3823px" src="implementation-desktop-1440x1000-full.png" alt="Implementation books section" /></div></div></div>
+      </div>
+      </section>
+
+      <section id="qa-contact">
+      <h2>Focused: Contact and speaker sheet</h2>
+      <div class="pair">
+        <div><div class="label">Source</div><div class="panel"><div class="crop"><img style="--offset: -3803px" src="../reference-evidence/youready-letsgrow-2026-08-31/desktop-1440x1000-full.png" alt="Source contact section" /></div></div></div>
+        <div><div class="label">Implementation</div><div class="panel"><div class="crop"><img style="--offset: -4339px" src="implementation-desktop-1440x1000-full.png" alt="Implementation contact section" /></div></div></div>
+      </div>
+      </section>
+    </main>
+  </body>
+</html>
