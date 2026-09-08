@@ -505,7 +505,7 @@
 
 .speaker-hero__credit {
   color: var(--speaker-gold-soft);
-  margin-top: 1.8rem;
+  margin-top: 2.35rem;
 }
 
 @keyframes speaker-fade-up {
@@ -1756,6 +1756,10 @@
     grid-template-columns: 1fr;
   }
 
+  .speaker-hero__actions {
+    margin-bottom: 1.35rem;
+  }
+
   .speaker-hero__actions .speaker-button,
   .speaker-contact__actions .speaker-button {
     width: 100%;
@@ -1764,6 +1768,7 @@
   .speaker-hero__credit {
     font-size: 0.61rem;
     letter-spacing: 0.15em;
+    margin-top: 0;
   }
 
   .speaker-why-card {

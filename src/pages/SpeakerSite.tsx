@@ -544,7 +544,7 @@ export function SpeakerSite(): JSX.Element {
                   This space is ready for WD&apos;s speaker reel. Until then, explore current teaching
                   and conversations on the Vision Buildaz channel.
                 </p>
-                <a href="https://www.youtube.com/@visionbuildaz" rel="noreferrer noopener" target="_blank">
+                <a href="https://youtu.be/OUtHOPJbcS0" rel="noreferrer noopener" target="_blank">
                   Watch on YouTube <ExternalLink aria-hidden="true" />
                 </a>
               </div>
